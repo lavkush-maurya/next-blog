@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { siteMetadata } from '~/data/siteMetadata'
 
 export function Heading() {
