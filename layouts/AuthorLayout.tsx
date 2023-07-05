@@ -6,7 +6,7 @@ import type { AuthorLayoutProps } from '~/types'
 
 export function AuthorLayout({ children }: AuthorLayoutProps) {
   let title = 'About'
-  let description = 'More about me and this blog'
+  let description = 'More about me and this blogs'
 
   return (
     <>

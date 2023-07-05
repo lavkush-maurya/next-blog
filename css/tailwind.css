@@ -84,10 +84,14 @@ pre,
 samp {
   font-family: 'JetBrains Mono', monospace;
 }
-
+::selection {
+  color: #222;
+  background: #F6FA70;
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: #FCE9F1 !important;
 }
 html,
 .lightbox-overlay {
