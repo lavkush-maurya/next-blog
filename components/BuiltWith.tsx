@@ -19,7 +19,10 @@ export function BuiltWith() {
         <Link href="https://www.typescriptlang.org?ref=.https://github.com/lavkush-maurya/next-blog">
           <DevIcon type="Typescript" className="h-5 w-5" />
         </Link>
-        <Link href="https://umami.is?ref=.https://github.com/lavkush-maurya/next-blog" className="pl-px">
+        <Link
+          href="https://umami.is?ref=.https://github.com/lavkush-maurya/next-blog"
+          className="pl-px"
+        >
           <DevIcon type="Umami" className="h-5 w-5" />
         </Link>
       </div>

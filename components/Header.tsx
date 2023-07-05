@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { headerNavLinks } from 'data/headerNavLinks'
 import NextImage from 'next/image'
 import { useRouter } from 'next/router'
-import { AnalyticsLink } from './AnalyticsLink'
+// import { AnalyticsLink } from './AnalyticsLink'
 import { Link } from './Link'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
