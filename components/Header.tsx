@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { headerNavLinks } from 'data/headerNavLinks'
 import NextImage from 'next/image'
@@ -6,6 +7,20 @@ import { Link } from './Link'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 export function Header({ onToggleNav }: { onToggleNav: () => void }) {
+  const [audio, setAudio] = useState(null)
+  const [profile, setProfile] = useState(null)
+  useEffect(() => {
+    setAudio(new Audio('/link.mp3'))
+    setProfile(new Audio('/profile.wav'))
+  }, [])
+  const handleProfile = () => {
+    profile.currentTime = 0
+    profile.play()
+  }
+  const handleClick = () => {
+    audio.currentTime = 0
+    audio.play()
+  }
   let router = useRouter()
   return (
     <header className="supports-backdrop-blur:bg-white/95 sticky top-0 z-40 overflow-x-hidden bg-white/75 py-3  dark:bg-dark/75">
@@ -20,6 +35,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                   width={45}
                   height={45}
                   className="rounded-full"
+                  onClick={handleProfile}
                 />
               </div>
             </div>
@@ -37,6 +53,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                         ? 'bg-gray-200 dark:bg-gray-700'
                         : 'hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
+                    onClick={handleClick}
                   >
                     {link.title}
                   </span>
