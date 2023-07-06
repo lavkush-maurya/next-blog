@@ -18,7 +18,7 @@ export function PostListItem({ frontMatter }: { frontMatter: MdxFrontMatter }) {
           <div>
             <h3 className="text-2xl font-bold leading-8 tracking-tight">
               <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
-                <span data-umami-event="blog-title">{title}</span>
+                <span>{title}</span>
               </Link>
             </h3>
             <div className="mt-1 flex flex-wrap">

@@ -9,7 +9,7 @@ import Markdown from '~/icons/markdown.svg'
 import NextJS from '~/icons/nextjs.svg'
 import TailwindCSS from '~/icons/tailwind.svg'
 import Prisma from '~/icons/prisma.svg'
-import Umami from '~/icons/umami.svg'
+
 import Vercel from '~/icons/vercel.svg'
 import Railway from '~/icons/railway.svg'
 import Spotify from '~/icons/spotify.svg'
@@ -26,7 +26,7 @@ export let DevIconsMap = {
   NextJS,
   TailwindCSS,
   Prisma,
-  Umami,
+
   Vercel,
   Railway,
   Spotify,

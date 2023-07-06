@@ -19,20 +19,8 @@ export function BuiltWith() {
         <Link href="https://www.typescriptlang.org?ref=.https://github.com/lavkush-maurya/next-blog">
           <DevIcon type="Typescript" className="h-5 w-5" />
         </Link>
-        <Link
-          href="https://umami.is?ref=.https://github.com/lavkush-maurya/next-blog"
-          className="pl-px"
-        >
-          <DevIcon type="Umami" className="h-5 w-5" />
-        </Link>
       </div>
       <span className="px-1 text-gray-400 dark:text-gray-500">-</span>
-      <Link
-        href={siteMetadata.siteRepo}
-        className="text-gray-500 underline underline-offset-4 dark:text-gray-400"
-      >
-        <span data-umami-event="view-source">View source</span>
-      </Link>
     </div>
   )
 }

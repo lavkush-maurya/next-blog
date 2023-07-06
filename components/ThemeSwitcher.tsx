@@ -7,11 +7,15 @@ export function ThemeSwitcher() {
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
-
+  const [audio, setAudio] = useState(null)
   const isDark = theme === 'dark' || resolvedTheme === 'dark'
-
+  useEffect(() => {
+    setAudio(new Audio('/click.mp3'))
+  }, [])
   const handleClick = () => {
     setTheme(isDark ? 'light' : 'dark')
+    audio.currentTime = 0
+    audio.play()
   }
   return (
     <>
@@ -20,7 +24,6 @@ export function ThemeSwitcher() {
         type="button"
         className="ml-1 rounded p-1.5 hover:bg-gray-200 dark:hover:bg-gray-700 sm:ml-2"
         onClick={handleClick}
-        data-umami-event="nav-theme-switcher"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

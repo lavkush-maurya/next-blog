@@ -9,7 +9,6 @@ export default function SocialAccounts() {
           href={siteMetadata.github}
           target="_blank"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-github"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Github</span>
@@ -26,7 +25,6 @@ export default function SocialAccounts() {
           href={siteMetadata.twitter}
           target="_blank"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-twitter"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Twitter</span>
@@ -43,7 +41,6 @@ export default function SocialAccounts() {
           href={siteMetadata.linkedin}
           target="_blank"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-linkedin"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Linkedin</span>
@@ -60,7 +57,6 @@ export default function SocialAccounts() {
           href={`mailto:${siteMetadata.email}`}
           target="_self"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-mail"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Mail</span>
@@ -77,7 +73,6 @@ export default function SocialAccounts() {
           href={siteMetadata.facebook}
           target="_self"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-facebook"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Facebook</span>
@@ -95,7 +90,6 @@ export default function SocialAccounts() {
           href={siteMetadata.youtube}
           target="_self"
           className="text-sm text-gray-500 transition hover:text-gray-600"
-          data-umami-event="contact-youtube"
           rel="noopener noreferrer"
         >
           <span className="sr-only">Youtube</span>

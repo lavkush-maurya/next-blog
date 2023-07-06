@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import { headerNavLinks } from 'data/headerNavLinks'
 import NextImage from 'next/image'
 import { useRouter } from 'next/router'
-// import { AnalyticsLink } from './AnalyticsLink'
 import { Link } from './Link'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
@@ -13,7 +12,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
       <div className="mx-auto flex max-w-3xl items-center justify-between px-3 xl:max-w-5xl xl:px-0">
         <div>
           <Link href="/" aria-label="Lav's Blog">
-            <div className="flex items-center justify-between" data-umami-event="logo">
+            <div className="flex items-center justify-between">
               <div className="mr-3 flex items-center justify-center">
                 <NextImage
                   src="/static/images/logo.jpg"
@@ -38,7 +37,6 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                         ? 'bg-gray-200 dark:bg-gray-700'
                         : 'hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
-                    data-umami-event={`nav-${link.href.replace('/', '')}`}
                   >
                     {link.title}
                   </span>
@@ -46,14 +44,13 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
               )
             })}
           </div>
-          {/* <AnalyticsLink /> */}
+
           <ThemeSwitcher />
           <button
             className="ml-2 mr-1 h-8 w-8 rounded sm:hidden"
             type="button"
             aria-label="Toggle Menu"
             onClick={onToggleNav}
-            data-umami-event="mobile-nav-toggle"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

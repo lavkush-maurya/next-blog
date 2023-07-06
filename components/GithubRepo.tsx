@@ -45,7 +45,6 @@ export function GithubRepo({ repo }: { repo: GithubRepository }) {
               target="_blank"
               rel="noreferrer"
               className="flex items-center space-x-1"
-              data-umami-event="project-demo"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,13 +60,7 @@ export function GithubRepo({ repo }: { repo: GithubRepository }) {
             <span className="text-gray-400 dark:text-gray-500">|</span>
           </>
         )}
-        <a
-          href={repo.url}
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center space-x-1"
-          data-umami-event="project-repo"
-        >
+        <a href={repo.url} target="_blank" rel="noreferrer" className="flex items-center space-x-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 45 16"

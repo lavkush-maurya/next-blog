@@ -104,7 +104,6 @@ export function ProfileCardInfo() {
               href={siteMetadata.github}
               rel="noreferrer"
               className="hover:underline"
-              data-umami-event="profile-card-github"
             >
               Github
             </a>
@@ -114,7 +113,6 @@ export function ProfileCardInfo() {
               href={siteMetadata.linkedin}
               rel="noreferrer"
               className="hover:underline"
-              data-umami-event="profile-card-linkedin"
             >
               LinkedIn
             </a>
@@ -124,7 +122,6 @@ export function ProfileCardInfo() {
               href={siteMetadata.twitter}
               rel="noreferrer"
               className="hover:underline"
-              data-umami-event="profile-card-twitter"
             >
               Twitter
             </a>
