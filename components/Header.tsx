@@ -47,7 +47,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
           <div className="hidden space-x-2 sm:block">
             {headerNavLinks.map((link) => {
               return (
-                <Link key={link.title} href={link.href}>
+                <Link key={link.title} href={link.href} onClick={handleClick}>
                   <span
                     className={clsx(
                       'inline-block rounded px-2 py-1 font-medium text-gray-900 dark:text-gray-100 sm:px-3 sm:py-2',
@@ -55,7 +55,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                         ? 'bg-gray-200 dark:bg-gray-700'
                         : 'hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
-                    onClick={handleClick}
+                    
                   >
                     {link.title}
                   </span>
