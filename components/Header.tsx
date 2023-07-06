@@ -11,6 +11,8 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
   const [profile, setProfile] = useState(null)
   useEffect(() => {
     setAudio(new Audio('/link.mp3'))
+  }, [])
+  useEffect(() => {
     setProfile(new Audio('/profile.wav'))
   }, [])
   const handleProfile = () => {
