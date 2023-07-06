@@ -55,7 +55,6 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                         ? 'bg-gray-200 dark:bg-gray-700'
                         : 'hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
-                    
                   >
                     {link.title}
                   </span>
