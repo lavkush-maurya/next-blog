@@ -21,8 +21,7 @@ async function getAccessToken() {
       refresh_token,
     }),
   })
-    console.log("data",response.json());
-    
+
   return response.json()
 }
 
