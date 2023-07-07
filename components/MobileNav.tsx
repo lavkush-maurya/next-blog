@@ -20,13 +20,12 @@ export function MobileNav({ navShow, onToggleNav }) {
   )
   return (
     <div className={className}>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <button
         type="button"
         aria-label="toggle modal"
         className="fixed right-4 top-4 h-8 w-8 cursor-auto focus:outline-none"
         onClick={onToggleNav}
-      >
+        >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -43,6 +42,7 @@ export function MobileNav({ navShow, onToggleNav }) {
       <nav className="fixed mt-8 h-full">
         {headerNavLinks.map((link) => (
           <div key={link.title} className="px-8 py-4" onClick={handleClick}>
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <Link
               href={link.href}
               className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-gray-100"
