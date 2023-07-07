@@ -41,7 +41,13 @@ export function MobileNav({ navShow, onToggleNav }) {
       </button>
       <nav className="fixed mt-8 h-full">
         {headerNavLinks.map((link) => (
-          <div key={link.title} className="px-8 py-4" onClick={handleClick}>
+          <div
+            key={link.title}
+            className="px-8 py-4"
+            onClick={handleClick}
+            role="button"
+            tabIndex={0}
+          >
             {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <Link
               href={link.href}
