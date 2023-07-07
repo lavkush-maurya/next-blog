@@ -7,8 +7,8 @@ import { Link } from './Link'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 export function Header({ onToggleNav }: { onToggleNav: () => void }) {
-  const [audio, setAudio] = useState(null)
   const [profile, setProfile] = useState(null)
+  const [audio, setAudio] = useState(null)
   useEffect(() => {
     setAudio(new Audio('/link.mp3'))
   }, [])
@@ -25,7 +25,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
   }
   let router = useRouter()
   return (
-    <header className="supports-backdrop-blur:bg-white/95 sticky top-0 z-40 overflow-x-hidden bg-white/75 py-3  dark:bg-dark/75">
+    <header className="supports-backdrop-blur:bg-white/95 sticky top-0 z-40 overflow-x-hidden bg-white/25 py-3  dark:bg-dark/75">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-3 xl:max-w-5xl xl:px-0">
         <div>
           <Link href="/" aria-label="Lav's Blog">

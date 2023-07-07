@@ -86,12 +86,12 @@ samp {
 }
 ::selection {
   color: #222;
-  background: #F6FA70;
+  background: #f6fa70;
 }
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: #FCE9F1 !important;
+  background-color: rgb(222 216 210) !important;
 }
 html,
 .lightbox-overlay {
