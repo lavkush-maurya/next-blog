@@ -15,6 +15,7 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
+    'jsx-a11y/click-events-have-key-events': 'off',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
