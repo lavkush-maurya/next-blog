@@ -20,6 +20,7 @@ export function MobileNav({ navShow, onToggleNav }) {
   )
   return (
     <div className={className}>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <button
         type="button"
         aria-label="toggle modal"
