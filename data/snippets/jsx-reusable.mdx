@@ -1,0 +1,88 @@
+---
+heading: 'Jsx Reusable snippets'
+title: 'Some reusable code snippets in JSX'
+date: '2023-07-07'
+type: 'React'
+draft: false
+summary: 'Certainly! Here are some reusable code snippets in JSX'
+tags: ['react', 'map', 'JSX']
+---
+
+Render a conditional component:
+
+```js
+function ConditionalComponent({ condition }) {
+  return condition ? <ComponentA /> : <ComponentB />
+}
+```
+
+Map over an array and render a list of components:
+
+```js
+function ListComponent({ items }) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+Render a component with inline styles:
+
+```js
+function InlineStyleComponent() {
+  const styles = {
+    color: 'red',
+    fontSize: '16px',
+  }
+
+  return <div style={styles}>Hello, World!</div>
+}
+```
+
+Render a component with conditional styling:
+
+```js
+function ConditionalStyleComponent({ isActive }) {
+  const styles = {
+    color: isActive ? 'blue' : 'gray',
+    fontSize: '16px',
+  }
+
+  return <div style={styles}>Hello, World!</div>
+}
+```
+
+Render a component with a click event handler and state:
+
+```js
+import { useState } from 'react'
+
+function StatefulComponent() {
+  const [count, setCount] = useState(0)
+
+  const handleClick = () => {
+    setCount(count + 1)
+  }
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  )
+}
+```
+
+Render a component with dynamic class names:
+
+```js
+function DynamicClassComponent({ isActive }) {
+  const classNames = `component ${isActive ? 'active' : 'inactive'}`
+
+  return <div className={classNames}>Hello, World!</div>
+}
+```
