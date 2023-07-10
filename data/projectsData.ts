@@ -38,7 +38,7 @@ export let projectsData: Project[] = [
   {
     type: 'self',
     title: 'Personal website',
-    imgSrc: '/static/images/leoblog.jpg',
+    imgSrc: '/static/images/lavkush.png',
     repo: 'github.com/lavkush-maurya/next-blog/',
     builtWith: ['Next.js', 'Tailwind', 'Typescript', 'Prisma'],
   },
