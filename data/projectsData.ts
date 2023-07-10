@@ -6,7 +6,7 @@ export let projectsData: Project[] = [
     title: 'Weaverse - Universal website builder',
     description: `The first Hydrogen-driven website builder powered by AI. Weaverse is a Shopify sales channel that allows you to create a website in minutes with no coding required.`,
     imgSrc: '/static/images/weaverse-hydrogen.jpg',
-    url: 'https://www.weaverse.io?ref=leohuynh.dev',
+    url: 'https://dassss',
     builtWith: ['Remix', 'Prisma', 'Tailwind', 'OpenAI'],
   },
   {
@@ -16,7 +16,7 @@ export let projectsData: Project[] = [
       'The first Hydrogen-driven theme for Shopify. Pilot is a Shopify theme that allows you to build a lightning-fast storefront with all the benefits of Hydrogen.',
     imgSrc: '/static/images/weaverse-pilot.jpg',
     repo: 'weaverse/pilot',
-    url: 'https://pilot.weaverse.io/',
+    url: 'https://dassss',
     builtWith: ['Hydrogen', 'Remix', 'Tailwind', 'Headless UI'],
   },
   {
@@ -24,7 +24,7 @@ export let projectsData: Project[] = [
     title: 'Minimog - Shopify theme',
     description: `The Next Generation of highest-converting and extensible Shopify theme (Weekly bestseller & Top trending in Themeforest eCommerce category).`,
     imgSrc: '/static/images/minimog.jpg',
-    url: 'https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968?ref=leohuynh.dev',
+    url: 'https://dassss',
     builtWith: ['Theme-kit', 'Liquid', 'Webpack', 'Tailwind'],
   },
   {
@@ -32,7 +32,7 @@ export let projectsData: Project[] = [
     title: 'Fox Kit - Shopify app',
     description: `The upsells and boost conversion tools that is built to support Minimog theme.`,
     imgSrc: '/static/images/foxkit.jpg',
-    url: 'https://apps.shopify.com/foxkit?ref=leohuynh.dev',
+    url: 'https://dassss',
     builtWith: ['Koa.js', 'JWT', 'MongoDB', 'Polaris'],
   },
   {
