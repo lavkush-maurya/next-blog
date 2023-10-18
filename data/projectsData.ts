@@ -11,6 +11,14 @@ export let projectsData: Project[] = [
   },
   {
     type: 'work',
+    title: 'Bear Analytics - Leading Event Analytics Platform',
+    description: `Bear IQ is a no-code event analytics platform. Our customers utilize the data they are already collecting to grow their audience, increase revenue, and market .`,
+    imgSrc: '/static/images/bear-analytics.png',
+    url: 'https://www.bearanalytics.com/',
+    builtWith: ['Webflow', 'Javascript'],
+  },
+  {
+    type: 'work',
     title: 'paradigmresear.ch - Blog Wesbsite',
     description:
       'Paradigm is an ecosystem that incorporates a venture fund, a research agency & an accelerator focused on science & tech.',
@@ -29,10 +37,10 @@ export let projectsData: Project[] = [
   },
   {
     type: 'work',
-    title: 'Bear Analytics - Leading Event Analytics Platform',
-    description: `Bear IQ is a no-code event analytics platform. Our customers utilize the data they are already collecting to grow their audience, increase revenue, and market .`,
-    imgSrc: '/static/images/bear-analytics.png',
-    url: 'https://www.bearanalytics.com/',
+    title: 'Zync AI - Leading Event Analytics Platform',
+    description: `Zync is your AI enabled production studio · Create a new episode in minutes with AI assistance · Get instant promo material like poster, registration page, & more.`,
+    imgSrc: '/static/images/zync.png',
+    url: 'https://zync.ai/',
     builtWith: ['Webflow', 'Javascript'],
   },
   {
