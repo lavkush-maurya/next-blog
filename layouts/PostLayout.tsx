@@ -2,7 +2,6 @@ import { BackToPosts } from '~/components/blog/BackToPosts'
 import { AuthorDetails } from '~/components/blog/BlogAuthor'
 import { BlogHeader } from '~/components/blog/BlogHeader'
 import { BlogTags } from '~/components/blog/BlogTags'
-import { Comments } from '~/components/comments'
 import { ScrollTopButton } from '~/components/ScrollTopButton'
 import { SectionContainer } from '~/components/SectionContainer'
 import { BlogSeo } from '~/components/SEO'
@@ -11,7 +10,7 @@ import { siteMetadata } from '~/data/siteMetadata'
 import type { PostLayoutProps } from '~/types'
 
 export function PostLayout(props: PostLayoutProps) {
-  let { frontMatter, authorDetails, page, children, commentConfig } = props
+  let { frontMatter, authorDetails, page, children } = props
   let { slug, fileName, date, title, tags, readingTime } = frontMatter
   let postUrl = `${siteMetadata.siteUrl}/blog/${slug}`
 
@@ -40,7 +39,6 @@ export function PostLayout(props: PostLayoutProps) {
             <div className="divide-y divide-gray-200 !border-t-0 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose prose-lg max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
               <SocialButtons postUrl={postUrl} title={title} fileName={fileName} />
-              <Comments frontMatter={frontMatter} config={commentConfig} />
             </div>
             <footer>
               <div className="text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2">

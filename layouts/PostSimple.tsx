@@ -1,6 +1,5 @@
 import { BlogMeta } from '~/components/blog/BlogMeta'
 import { BlogTags } from '~/components/blog/BlogTags'
-import { Comments } from '~/components/comments'
 import { PageTitle } from '~/components/PageTitle'
 import { ScrollTopButton } from '~/components/ScrollTopButton'
 import { SectionContainer } from '~/components/SectionContainer'
@@ -10,7 +9,7 @@ import { siteMetadata } from '~/data/siteMetadata'
 import type { PostSimpleLayoutProps } from '~/types'
 
 export function PostSimple(props: PostSimpleLayoutProps) {
-  let { frontMatter, type, children, authorDetails, commentConfig } = props
+  let { frontMatter, type, children, authorDetails } = props
   let { date, title, slug, fileName, tags, readingTime } = frontMatter
   let postUrl = `${siteMetadata.siteUrl}/${type}/${slug}`
 
@@ -43,7 +42,6 @@ export function PostSimple(props: PostSimpleLayoutProps) {
               </div>
               <div className="border-t border-gray-200 dark:border-gray-700">
                 <SocialButtons postUrl={postUrl} title={title} fileName={fileName} />
-                <Comments frontMatter={frontMatter} config={commentConfig} />
               </div>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import type React from 'react'
-import type { CommentConfigType } from './components'
 import type { AuthorFrontMatter, BlogFrontMatter, MdxFrontMatter, SnippetFrontMatter } from './mdx'
 import type { PaginationType } from './server'
 
@@ -20,7 +19,6 @@ export interface PostSimpleLayoutProps {
   type: string
   children: React.ReactNode
   authorDetails: AuthorFrontMatter[]
-  commentConfig: CommentConfigType
   page: number
 }
 
