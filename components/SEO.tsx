@@ -23,6 +23,33 @@ export function PageSeo({ title, description }: PageSeoProps) {
       <meta name="twitter:image" content={`${siteMetadata.siteUrl}${siteMetadata.socialBanner}`} />
       <link rel="canonical" href={`${siteMetadata.siteUrl}`} key="canonical" />
       <link rel="home" href={`${siteMetadata.siteUrl}`} key="home" />
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Lavv Blog",
+            "description": "A blog showcasing various topics.",
+            "url": "https://lavv-blog.vercel.app/",
+            "publisher": {
+              "@type": "Individual",
+              "name": "Lavkush Maurya",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://lavv-blog.vercel.app/logo.png",
+                "width": 600,
+                "height": 60
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://lavv-blog.vercel.app/cover-image.png",
+              "width": 1200,
+              "height": 630
+            }
+          }
+        `}
+      </script>
     </Head>
   )
 }
