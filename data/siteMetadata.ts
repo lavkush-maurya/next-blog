@@ -5,9 +5,9 @@ export let siteMetadata = {
   headerTitle: 'Lavkush Blog - Lavv⚝ coding journey',
   footerTitle: 'Lavkush Blog - Lavv⚝ coding journey',
   description:
-    ' Lavv coding journey - work and life stories through the keyboard of an open-minded Full-Stack Developer',
+    "Lavkush Maurya: A full-stack dev's journey of work & life through an open-minded keyboard. Stories of coding, life & more! #CodingJourney #FullStackDev",
   language: 'en-us',
-  siteUrl: 'https://www.lavkushreactjs.web.app',
+  siteUrl: 'https://lavkushreactjs.web.app',
   siteRepo: 'https://github.com/lavkush-maurya/next-blog',
   siteLogo: '/static/images/logo.jpg',
   image: '/static/images/logo.jpg',
