@@ -26,11 +26,3 @@ export let siteMetadata = {
     linkedin: 'lavkushmaurya04',
   },
 }
-
-/**
- * Select a provider and use the environment variables associated to it
- * https://vercel.com/docs/environment-variables
- * --
- *
- * Visit each provider's documentation link and follow the instructions, then add the environment variable to your project.
- */
