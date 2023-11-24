@@ -21,6 +21,8 @@ export function PageSeo({ title, description }: PageSeoProps) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${siteMetadata.siteUrl}${siteMetadata.socialBanner}`} />
+      <link rel="canonical" href={`${siteMetadata.siteUrl}`} key="canonical" />
+      <link rel="home" href={`${siteMetadata.siteUrl}`} key="home" />
     </Head>
   )
 }

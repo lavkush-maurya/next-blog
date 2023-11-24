@@ -7,7 +7,7 @@ export let siteMetadata = {
   description:
     "Lavkush Maurya: A full-stack dev's journey of work & life through an open-minded keyboard. Stories of coding, life & more! #CodingJourney #FullStackDev",
   language: 'en-us',
-  siteUrl: 'https://lavkushreactjs.web.app',
+  siteUrl: 'https://lavv-blog.vercel.app/',
   siteRepo: 'https://github.com/lavkush-maurya/next-blog',
   siteLogo: '/static/images/logo.jpg',
   image: '/static/images/logo.jpg',
