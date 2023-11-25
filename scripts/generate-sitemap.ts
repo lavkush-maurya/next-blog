@@ -2,7 +2,7 @@ import fs from 'fs'
 import { globby } from 'globby'
 import prettier from 'prettier'
 
-let SITE_URL = 'https://lavv-blog.vercel.app/'
+let SITE_URL = 'https://lavv-blog.vercel.app'
 
 ;(async () => {
   console.log('Generating sitemap...')
