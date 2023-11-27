@@ -47,8 +47,8 @@ export let projectsData: Project[] = [
     type: 'self',
     title: 'Personal website',
     imgSrc: '/static/images/lavkush.png',
-    repo: 'github.com/lavkush-maurya/next-blog/',
-    url:'https://lavv-blog.vercel.app/',
+    repo: 'github.com/lavkush-maurya/next-blog2/',
+    url:'https://www.lavkushmaurya.me/',
     builtWith: ['Next.js', 'Tailwind', 'Typescript', 'MDX'],
   },
   {
