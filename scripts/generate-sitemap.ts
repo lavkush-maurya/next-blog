@@ -22,13 +22,12 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
 				${pages
           .map((page) => {
             let path = page
-              .replace('pages/', '/')
-              .replace('data/blog', '/blog')
-              .replace('public/', '/')
-              .replace('.ts', '')
-              .replace('.mdx', '')
-              .replace('.md', '')
-              .replace('/feed.xml', '')
+              .replace(/^pages\//, '/')
+              .replace(/^data\/blog/, '/blog')
+              .replace(/^public\//, '/')
+              .replace(/\.tsx?$/, '')
+              .replace(/\.mdx?$/, '')
+              .replace(/\/feed\.xml$/, '')
             let route = path === '/index' ? '' : path
             if (page === `pages/404.ts` || page === `pages/blog/[...slug].ts`) {
               return
