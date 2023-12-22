@@ -3,7 +3,7 @@ export default function Linktree() {
     <div className="flex flex-col items-center justify-center pt-4 md:pt-10 xl:pt-20">
       <iframe
         title="Linktree"
-        src="https://linktr.ee"
+        src="https://todo-nextjs2023.vercel.app/"
         width="420"
         height="800"
         frameBorder="0"
