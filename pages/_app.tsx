@@ -15,9 +15,9 @@ export default function App({ Component, pageProps }) {
       </Head>
       <LayoutWrapper>
         <Component {...pageProps} />
+        <SpeedInsights />
+        <Analytics />
       </LayoutWrapper>
-      <Analytics />
-      <SpeedInsights />
     </ThemeProvider>
   )
 }
