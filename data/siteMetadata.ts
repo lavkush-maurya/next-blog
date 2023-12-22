@@ -1,5 +1,5 @@
 export let siteMetadata = {
-  title: 'Lavkush Blog - Lavv coding journey',
+  title: 'Learn and Grow with Lavkush Blog - Explore Lavv coding journey',
   author: 'Lavkush Maurya',
   fullName: 'Lavkush Maurya',
   headerTitle: 'Lavkush Blog - Lavv⚝ coding journey',

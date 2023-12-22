@@ -1,7 +1,13 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-
+module.exports = {
+  headers: {
+    '*': {
+      'Expires': new Date(Date.now() + 86400000).toUTCString(),
+    },
+  },
+};
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
