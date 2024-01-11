@@ -21,6 +21,11 @@ export function BuiltWith() {
         </Link>
       </div>
       <span className="px-1 text-gray-400 dark:text-gray-500">-</span>
+      <div className="flex space-x-1.5">
+        <Link href="/sitemap">
+          <span className="px-1 text-gray-400 dark:text-gray-500">SiteMap</span>
+        </Link>
+      </div>
     </div>
   )
 }
