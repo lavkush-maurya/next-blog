@@ -14,7 +14,7 @@ const Sitemap: NextPage<SitemapProps> = ({ links }) => {
       <ul className="list-disc pl-4">
         {links.map((link, index) => (
           <li key={index} className="mb-2 md:mb-4">
-            <a href={link} className="text-blue-500 hover:underline">
+            <a href={link} className="text-red-500 hover:underline">
               {link}
             </a>
           </li>
@@ -25,7 +25,10 @@ const Sitemap: NextPage<SitemapProps> = ({ links }) => {
 }
 
 export const getServerSideProps: GetServerSideProps<SitemapProps> = async () => {
-  const sitemapPath = path.join(process.cwd(), 'public/sitemap.xml')
+  // Or method if this- 'public/sitemap.xml' or this -'sitemap.xml'
+  const sitemapPath = fs.existsSync(path.join(process.cwd(), 'sitemap.xml'))
+    ? path.join(process.cwd(), 'sitemap.xml')
+    : path.join(process.cwd(), 'public/sitemap.xml')
   const sitemapXml = fs.readFileSync(sitemapPath, 'utf-8')
 
   let links: string[] = []
