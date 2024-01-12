@@ -8,6 +8,8 @@ interface SitemapProps {
 }
 
 const Sitemap: NextPage<SitemapProps> = ({ links }) => {
+  console.log('linkss===>>>>', links)
+
   return (
     <div className="container mx-auto my-8 p-4">
       <h1 className="mb-4 text-xl font-bold leading-normal md:text-2xl">Sitemap</h1>
