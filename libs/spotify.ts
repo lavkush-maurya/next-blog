@@ -1,14 +1,9 @@
 import fetch from 'isomorphic-unfetch'
 import { SPOTIFY_TOKEN_API, SPOTIFY_NOW_PLAYING_API, SPOTIFY_TOP_TRACKS_API } from '~/constant'
 
-let {
-  SPOTIFY_CLIENT_ID: client_id,
-  SPOTIFY_CLIENT_SECRET: client_secret,
-  SPOTIFY_REFRESH_TOKEN: refresh_token,
-} = process.env
+let { SPOTIFY_CLIENT_ID: client_id, SPOTIFY_CLIENT_SECRET: client_secret } = process.env
 
 let basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
-
 async function getAccessToken() {
   let response = await fetch(SPOTIFY_TOKEN_API, {
     method: 'POST',
@@ -17,11 +12,11 @@ async function getAccessToken() {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token,
+      grant_type: 'client_credentials',
+      client_id: client_id,
+      client_secret: client_secret,
     }),
   })
-
   return response.json()
 }
 
