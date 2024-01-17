@@ -14,7 +14,7 @@ const Sitemap: NextPage<SitemapProps> = ({ links }) => {
       <ul className="list-disc pl-4">
         {links.map((link, index) => (
           <li key={index} className="mb-2 md:mb-4">
-            <a href={link} className="text-red-500 hover:underline">
+            <a href={link} className="text-orangered hover:underline">
               {link}
             </a>
           </li>

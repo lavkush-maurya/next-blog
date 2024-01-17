@@ -1,0 +1,27 @@
+.resume table {
+  @apply min-w-full border-collapse border border-gray-300 shadow;
+}
+
+.resume thead {
+  @apply bg-gray-100;
+}
+
+.resume th,
+.resume td {
+  @apply border border-gray-300 p-3;
+}
+
+.resume tbody tr:nth-child(odd) {
+  @apply bg-gray-200;
+}
+#toc-list a {
+  color: black;
+  scroll-behavior: smooth;
+  transition: color 0.3s ease-in-out;
+}
+#toc-list a:hover {
+  color: orangered;
+}
+#toc-list a.active {
+  color: orangered;
+}

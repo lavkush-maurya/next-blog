@@ -56,6 +56,7 @@ module.exports = {
         sans: ['Outfit', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        orangered: 'orangered',
         primary: colors.indigo,
         gray: colors.gray,
         dark: '#22272e',
