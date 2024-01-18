@@ -104,10 +104,7 @@ Use this code to fetch the now playing track in your node server:
 
 ```typescript
 import fetch from 'isomorphic-unfetch'
-
-let SPOTIFY_TOKEN_API = `https://accounts.spotify.com/api/token`
-let SPOTIFY_NOW_PLAYING_API = `https://api.spotify.com/v1/me/player/currently-playing`
-let SPOTIFY_TOP_TRACKS_API = `https://api.spotify.com/v1/me/top/tracks`
+import { SPOTIFY_TOKEN_API, SPOTIFY_NOW_PLAYING_API, SPOTIFY_TOP_TRACKS_API } from '~/constant'
 
 let {
   SPOTIFY_CLIENT_ID: client_id,
@@ -118,18 +115,17 @@ let {
 let basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 async function getAccessToken() {
+  var urlencoded = new URLSearchParams()
+  urlencoded.append('grant_type', 'refresh_token')
+  urlencoded.append('refresh_token', refresh_token)
   let response = await fetch(SPOTIFY_TOKEN_API, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${basic}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token,
-    }),
+    body: urlencoded,
   })
-
   return response.json()
 }
 
@@ -144,6 +140,17 @@ export async function getNowPlaying() {
     },
   })
 }
+
+export async function getTopTracks() {
+  let { access_token } = await getAccessToken()
+
+  return fetch(SPOTIFY_TOP_TRACKS_API, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+}
+
 ```
 
 Remember to add the required environment variables to your `.env` file.
