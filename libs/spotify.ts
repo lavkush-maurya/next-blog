@@ -10,16 +10,16 @@ let {
 let basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 async function getAccessToken() {
-  var urlencoded = new URLSearchParams();
-  urlencoded.append("grant_type", "refresh_token");
-  urlencoded.append("refresh_token", refresh_token);
+  var urlencoded = new URLSearchParams()
+  urlencoded.append('grant_type', 'refresh_token')
+  urlencoded.append('refresh_token', refresh_token)
   let response = await fetch(SPOTIFY_TOKEN_API, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${basic}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: urlencoded
+    body: urlencoded,
   })
   return response.json()
 }
