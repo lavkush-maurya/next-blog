@@ -36,4 +36,4 @@ Thanks for the free resources 🙏
 
 ---
 
-Copyright (c) 2023 Lavkush Maurya - Alrights reserved.
+Copyright (c) 2024 Lavkush Maurya - Alrights reserved.
