@@ -11,8 +11,8 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/static/favicons/hat.png" color="#fff" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
+          <meta name="google-adsense-account" content="ca-pub-3947117760006331"></meta>
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
