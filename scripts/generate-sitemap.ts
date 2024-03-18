@@ -15,7 +15,7 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
     '!pages/_*.tsx',
     '!pages/api',
   ])
-
+  let currentDate = new Date().toISOString()
   let sitemap = `
 			<?xml version="1.0" encoding="UTF-8"?>
 			<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -32,7 +32,7 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
             if (page === `pages/404.ts` || page === `pages/blog/[...slug].ts`) {
               return
             }
-            return `<url><loc>${SITE_URL}${route}</loc></url>\n`
+            return `<url><loc>${SITE_URL}${route}</loc><lastmod>${currentDate}</lastmod></url>\n`
           })
           .join('')}
 			</urlset>
