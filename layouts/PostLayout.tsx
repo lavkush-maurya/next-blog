@@ -16,7 +16,7 @@ export function PostLayout(props: PostLayoutProps) {
 
   return (
     <SectionContainer>
-      <BlogSeo url={postUrl} authorDetails={authorDetails} {...frontMatter} />
+      <BlogSeo url={postUrl} title={title} authorDetails={authorDetails} {...frontMatter} />
       <ScrollTopButton />
       <article>
         <div>
