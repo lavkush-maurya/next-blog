@@ -4,12 +4,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = {
   headers: {
     '*': {
-      'Expires': new Date(Date.now() + 86400000).toUTCString(),
+      Expires: new Date(Date.now() + 86400000).toUTCString(),
     },
   },
-};
+}
 module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
+  reactStrictMode: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   eslint: {
     dirs: ['components', 'constant', 'layouts', 'libs', 'pages', 'scripts', 'utils'],

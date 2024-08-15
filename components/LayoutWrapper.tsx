@@ -7,7 +7,19 @@ import { MobileNav } from './MobileNav'
 export function LayoutWrapper({ children }) {
   let [navShow, setNavShow] = useState(false)
   let onToggleNav = () => setNavShow((status) => !status)
+  console.log(`
+██╗  ██╗███████╗██╗     ██╗      ██████╗     ██╗    ██╗ ██████╗ ██████╗ ██╗     ██████╗ 
+██║  ██║██╔════╝██║     ██║     ██╔═══██╗    ██║    ██║██╔═══██╗██╔══██╗██║     ██╔══██╗
+███████║█████╗  ██║     ██║     ██║   ██║    ██║ █╗ ██║██║   ██║██████╔╝██║     ██║  ██║
+██╔══██║██╔══╝  ██║     ██║     ██║   ██║    ██║███╗██║██║   ██║██╔══██╗██║     ██║  ██║
+██║  ██║███████╗███████╗███████╗╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║  ██║███████╗██████╔╝
+╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝ 
 
+Hi Geek, 
+I love to be friends with like minded people. Message me, maybe we could help each other.
+Cheers,
+Lavkush Maurya
+mailto: lavkushmaurya147@gmail.com`)
   return (
     <>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
