@@ -1,12 +1,9 @@
 import React from 'react'
 import { PageSeo } from '~/components/SEO'
 import { siteMetadata } from '~/data/siteMetadata'
-import type { PageLayoutProps } from '~/types/layout'
+import type { ContactLayoutProps } from '~/types/layout'
 
-// Ensure this component is imported correctly
-import { Footer } from '~/components/Footer'
-
-export function PageLayout({ children, frontMatter }: PageLayoutProps) {
+export function ContactLayout({ children, frontMatter }: ContactLayoutProps) {
   const title = frontMatter.title || 'Default Page Title'
   const description = frontMatter.summary || 'Default page description'
 
@@ -24,10 +21,9 @@ export function PageLayout({ children, frontMatter }: PageLayoutProps) {
         <main className="container mx-auto px-4 py-8">
           <div className="prose prose-lg max-w-none dark:prose-dark">{children}</div>
         </main>
-        <Footer />
       </div>
     </>
   )
 }
 
-export default PageLayout
+export default ContactLayout

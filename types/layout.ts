@@ -7,7 +7,7 @@ export interface AuthorLayoutProps {
   frontMatter: BlogFrontMatter
 }
 
-export interface PageLayoutProps {
+export interface ContactLayoutProps {
   children: React.ReactNode
   frontMatter: MdxFrontMatter
 }
