@@ -7,6 +7,11 @@ export interface AuthorLayoutProps {
   frontMatter: BlogFrontMatter
 }
 
+export interface PageLayoutProps {
+  children: React.ReactNode
+  frontMatter: MdxFrontMatter
+}
+
 export interface ListLayoutProps {
   posts: BlogFrontMatter[]
   title: string
