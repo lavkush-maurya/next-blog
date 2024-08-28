@@ -1,4 +1,4 @@
-//  global self, importScripts
+/* eslint-disable */
 ;(function (O) {
   !(function (e) {
     var t = O.Z()
