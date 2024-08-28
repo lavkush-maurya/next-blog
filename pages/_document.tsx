@@ -9,6 +9,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/jpg" sizes="16x16" href="/static/favicons/hat.jpg" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
           <link rel="mask-icon" href="/static/favicons/hat.png" color="#fff" />
+          <meta name="monetag" content="720949db3c9dcbfa230e51bfd98ec79d"></meta>
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
           <meta name="google-adsense-account" content="ca-pub-3947117760006331"></meta>
