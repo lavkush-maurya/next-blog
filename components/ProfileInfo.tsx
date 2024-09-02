@@ -24,7 +24,7 @@ export function ProfileCardInfo() {
           </svg>
 
           <p className="px-2">
-            MERN Developer @{' '}
+            Full-stack Engineer @{' '}
             <a
               target="_blank"
               href="https://sparkleinfotech.com/"
