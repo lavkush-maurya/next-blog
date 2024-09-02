@@ -11,6 +11,8 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
     'pages/*.tsx',
     'data/blog/**/*.mdx',
     'data/blog/**/*.md',
+    'data/snippets/**/*.mdx',
+    'data/snippets/**/*.md',
     'public/tags/**/*.xml',
     '!pages/_*.tsx',
     '!pages/api',
@@ -24,6 +26,7 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
             let path = page
               .replace(/^pages\//, '/')
               .replace(/^data\/blog/, '/blog')
+              .replace(/^data\/snippets/, '/snippets')
               .replace(/^public\//, '/')
               .replace(/\.tsx?$/, '')
               .replace(/\.mdx?$/, '')

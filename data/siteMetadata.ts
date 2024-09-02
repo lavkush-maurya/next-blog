@@ -8,7 +8,7 @@ export let siteMetadata = {
     "Lavkush Maurya: A full-stack dev's journey of work & life through an open-minded keyboard. Stories of coding, life & more! #CodingJourney #FullStackDev",
   language: 'en-us',
   siteUrl: 'https://www.lavkushmaurya.me',
-  siteRepo: 'https://github.com/lavkush-maurya/next-blog2',
+  siteRepo: 'https://github.com/lavkush-maurya/next-blog',
   siteLogo: '/static/images/logo.jpg',
   image: '/static/images/logo.jpg',
   socialBanner: '/static/images/logo.jpg',

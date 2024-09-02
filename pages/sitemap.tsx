@@ -6,7 +6,7 @@ interface SitemapProps {
 }
 
 const Sitemap: NextPage<SitemapProps> = ({ links }) => {
-  console.log('linkss===>>>>', links)
+  // console.log('linkss===>>>>', links)
 
   return (
     <div className="container mx-auto my-8 p-4">
