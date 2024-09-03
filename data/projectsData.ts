@@ -48,7 +48,7 @@ export let projectsData: Project[] = [
     title: 'Personal website',
     imgSrc: '/static/images/lavkush.png',
     repo: 'github.com/lavkush-maurya/next-blog2/',
-    url:'https://www.lavkushmaurya.me/',
+    url: 'https://www.lavkushmaurya.me/',
     builtWith: ['Next.js', 'Tailwind', 'Typescript', 'MDX'],
   },
   {
@@ -56,7 +56,7 @@ export let projectsData: Project[] = [
     title: 'Personal Html Portfolio',
     imgSrc: '/static/images/resume-banner.png',
     repo: 'Html Portfolio',
-    url:'https://lavkush-maurya.github.io/Portfolio/',
+    url: 'https://lavkush-maurya.github.io/Portfolio/',
     builtWith: ['Html', 'Css', 'Jquery', 'Javscript', 'Github'],
   },
 ]
