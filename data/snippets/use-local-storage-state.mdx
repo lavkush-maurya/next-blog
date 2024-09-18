@@ -17,23 +17,23 @@ In React, managing state with local storage allows you to persist data between p
 This custom hook syncs a piece of state with local storage so that the state persists even if the user refreshes the page or closes the browser.
 
 ```js
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export let useLocalStorageState = (key, defaultValue = '', options = {}) => {
-  let { serialize = JSON.stringify, deserialize = JSON.parse } = options;
+  let { serialize = JSON.stringify, deserialize = JSON.parse } = options
   let [state, setState] = useState(() => {
-    let valueInLocalStorage = window.localStorage.getItem(key);
+    let valueInLocalStorage = window.localStorage.getItem(key)
     if (valueInLocalStorage) {
-      return deserialize(valueInLocalStorage);
+      return deserialize(valueInLocalStorage)
     }
-    return defaultValue;
-  });
+    return defaultValue
+  })
 
   useEffect(() => {
-    window.localStorage.setItem(key, serialize(state));
-  }, [key, state, serialize]);
+    window.localStorage.setItem(key, serialize(state))
+  }, [key, state, serialize])
 
-  return [state, setState];
+  return [state, setState]
 }
 ```
 
@@ -49,25 +49,26 @@ The hook supports custom serialization and deserialization functions through the
 ### Usage Example
 
 ```js
-import { useLocalStorageState } from './useLocalStorageState';
+import { useLocalStorageState } from './useLocalStorageState'
 
 function Counter() {
-  const [count, setCount] = useLocalStorageState('count', 0);
+  const [count, setCount] = useLocalStorageState('count', 0)
 
-  const increment = () => setCount(c => c + 1);
+  const increment = () => setCount((c) => c + 1)
 
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={increment}>Increment</button>
     </div>
-  );
+  )
 }
 ```
 
 ### Why Use Local Storage?
 
 Local storage is a simple way to store data in the browser, and it persists across page reloads. Using `useLocalStorageState`, you can:
+
 - **Save user preferences** (e.g., theme settings).
 - **Persist form data** between sessions.
 - **Store app state** like counters, shopping carts, or settings.
@@ -83,4 +84,3 @@ Local storage is a simple way to store data in the browser, and it persists acro
 The `useLocalStorageState` hook provides a reusable and efficient way to manage persistent state in your React applications. It's perfect for situations where you want to remember user settings or preferences across page reloads, making your app more user-friendly.
 
 Happy coding!
-

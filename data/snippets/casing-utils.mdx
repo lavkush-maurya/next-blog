@@ -1,6 +1,6 @@
 ---
-heading: 'Casing utilities'
-title: 'String casing utilities in JavaScript'
+heading: 'Casing Utilities'
+title: 'String Casing Utilities in JavaScript'
 date: '2023-02-21'
 type: 'Typescript'
 draft: false
@@ -35,7 +35,7 @@ Let’s explore some essential utility functions to convert between these format
  * capitalizeAll('hello world') // "Hello World"
  */
 function capitalizeAll(str: string): string {
-  return str.replace(/\b\w/g, (char) => char.toUpperCase());
+  return str.replace(/\b\w/g, (char) => char.toUpperCase())
 }
 ```
 
@@ -51,7 +51,10 @@ function capitalizeAll(str: string): string {
  * pascalCaseToPlainText('HelloWorld') // "hello world"
  */
 function pascalCaseToPlainText(str: string): string {
-  return str.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
+  return str
+    .replace(/([A-Z])/g, ' $1')
+    .trim()
+    .toLowerCase()
 }
 ```
 
@@ -67,7 +70,7 @@ function pascalCaseToPlainText(str: string): string {
  * camelCaseToKebabCase('helloWorld') // "hello-world"
  */
 function camelCaseToKebabCase(str: string): string {
-  return str.replace(/([A-Z])/g, '-$1').toLowerCase();
+  return str.replace(/([A-Z])/g, '-$1').toLowerCase()
 }
 ```
 
@@ -83,7 +86,7 @@ function camelCaseToKebabCase(str: string): string {
  * kebabCaseToPlainText('hello-world') // "hello world"
  */
 function kebabCaseToPlainText(str: string): string {
-  return str.replace(/-/g, ' ');
+  return str.replace(/-/g, ' ')
 }
 ```
 
@@ -99,7 +102,7 @@ function kebabCaseToPlainText(str: string): string {
  * toKebabCase('Hello World') // "hello-world"
  */
 function toKebabCase(str: string): string {
-  return str.replace(/\s+/g, '-').toLowerCase();
+  return str.replace(/\s+/g, '-').toLowerCase()
 }
 ```
 
@@ -107,17 +110,18 @@ function toKebabCase(str: string): string {
 
 Here’s a quick look at how the string transformations work:
 
-| Input (String)      | Output (Transformed)        | Function Used            |
-|---------------------|-----------------------------|---------------------------|
-| `hello world`       | `Hello World`               | `capitalizeAll`           |
-| `HelloWorld`        | `hello world`               | `pascalCaseToPlainText`   |
-| `helloWorld`        | `hello-world`               | `camelCaseToKebabCase`    |
-| `hello-world`       | `hello world`               | `kebabCaseToPlainText`    |
-| `Hello World`       | `hello-world`               | `toKebabCase`             |
+| Input (String) | Output (Transformed) | Function Used           |
+| -------------- | -------------------- | ----------------------- |
+| `hello world`  | `Hello World`        | `capitalizeAll`         |
+| `HelloWorld`   | `hello world`        | `pascalCaseToPlainText` |
+| `helloWorld`   | `hello-world`        | `camelCaseToKebabCase`  |
+| `hello-world`  | `hello world`        | `kebabCaseToPlainText`  |
+| `Hello World`  | `hello-world`        | `toKebabCase`           |
 
 ## Practical Uses for Casing Conversions
 
 These utilities are incredibly useful for:
+
 - **Formatting input data** in different casing styles (e.g., user input forms).
 - **Converting API responses** to match the naming conventions in your app.
 - **Displaying data** in a more human-readable format on a UI.
@@ -129,6 +133,7 @@ While libraries like Lodash or Underscore provide utility functions for string c
 ## What’s Next?
 
 Stay tuned for more string casing utilities! We’re planning to add functions for:
+
 - **snake_case** transformations
 - Converting between multiple cases in one go
 - Detecting string casing types

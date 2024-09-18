@@ -19,31 +19,31 @@ The Event-Emitter or PubSub (Publish-Subscribe) pattern is a powerful way to han
 ```javascript
 class Event {
   constructor() {
-    this.events = {};
+    this.events = {}
   }
 
   subscribe(event, handler) {
-    this.events[event] = this.events[event] || [];
-    this.events[event].push(handler);
-    return () => this.unSubscribe(event, handler);
+    this.events[event] = this.events[event] || []
+    this.events[event].push(handler)
+    return () => this.unSubscribe(event, handler)
   }
 
   unSubscribe(event, handler) {
-    let handlers = this.events[event];
+    let handlers = this.events[event]
     if (handlers && Array.isArray(handlers)) {
       for (let i = 0; i < handlers.length; i++) {
         if (handlers[i] === handler) {
-          handlers.splice(i, 1);
-          break;
+          handlers.splice(i, 1)
+          break
         }
       }
     }
   }
 
   emit(event, ...args) {
-    (this.events[event] || []).forEach((handler) => {
-      handler(...args);
-    });
+    ;(this.events[event] || []).forEach((handler) => {
+      handler(...args)
+    })
   }
 }
 ```
@@ -51,7 +51,6 @@ class Event {
 ### How It Works
 
 - **subscribe(event, handler)**: This method allows you to subscribe to a particular event by providing the event name and the handler function. When the event is emitted, the handler will be executed with the passed arguments. It returns a function to unsubscribe the handler easily.
-  
 - **unSubscribe(event, handler)**: This method removes the event handler from the list of subscribers for the given event.
 
 - **emit(event, ...args)**: When the `emit` method is called, it triggers all the subscribed handlers for that event, passing the provided arguments.
@@ -60,27 +59,27 @@ class Event {
 
 ```javascript
 // Create a global instance in your app
-let globalEvent = new Event();
+let globalEvent = new Event()
 
-let handler1 = (data) => console.log(`handler1(): FOO event emitted with data: ${data}`);
-let handler2 = (data) => console.log(`handler2(): FOO event emitted with data: ${data}`);
+let handler1 = (data) => console.log(`handler1(): FOO event emitted with data: ${data}`)
+let handler2 = (data) => console.log(`handler2(): FOO event emitted with data: ${data}`)
 
 // Subscribe to an event
-globalEvent.subscribe('FOO', handler1);
-globalEvent.subscribe('FOO', handler2);
+globalEvent.subscribe('FOO', handler1)
+globalEvent.subscribe('FOO', handler2)
 
 // Emit the event when needed
-globalEvent.emit('FOO', 'foo');
+globalEvent.emit('FOO', 'foo')
 
 // Expected:
 // handler1(): FOO event emitted with data: foo
 // handler2(): FOO event emitted with data: foo
 
 // Unsubscribe a handler
-globalEvent.unSubscribe('FOO', handler2);
+globalEvent.unSubscribe('FOO', handler2)
 
 // Emit the event again
-globalEvent.emit('FOO', 'bar');
+globalEvent.emit('FOO', 'bar')
 
 // Expected:
 // handler1(): FOO event emitted with data: bar
@@ -89,9 +88,7 @@ globalEvent.emit('FOO', 'bar');
 ### Practical Uses of Event Emitters
 
 - **Decoupling components**: With Event Emitters, different parts of your application can communicate without being directly dependent on each other.
-  
 - **Asynchronous event handling**: They are great for managing asynchronous operations, such as handling user actions or network responses.
-  
 - **Cross-component communication**: In a large application with various components, event emitters provide a simple way to enable communication between components that don’t know about each other.
 
 ### Key Benefits

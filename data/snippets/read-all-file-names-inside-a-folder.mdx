@@ -66,18 +66,18 @@ $ node
 If you want to automate this process using a script, you can create a `listFiles.js` script and run it:
 
 ```javascript
-const fs = require('fs');
+const fs = require('fs')
 
 // Specify your directory
-const directoryPath = './folder';
+const directoryPath = './folder'
 
 // Read and display file names
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
-    return console.log('Unable to scan directory: ' + err);
+    return console.log('Unable to scan directory: ' + err)
   }
-  console.log('Files in directory:', files);
-});
+  console.log('Files in directory:', files)
+})
 ```
 
 Save the above code in a file named `listFiles.js`, and execute it using the following command:
@@ -89,10 +89,8 @@ $ node listFiles.js
 ### Practical Applications
 
 - **File management**: You can use this approach to automate tasks such as renaming, processing, or archiving files in a directory.
-  
 - **Dynamic imports**: In a web or Node.js app, you might want to dynamically import or process files without hardcoding file names.
 
 ### Conclusion
 
 With Node.js, reading file names in a directory is simple and efficient. This method can be extended for various purposes, such as file manipulation, generating lists of assets, or automating tasks in a development workflow.
-

@@ -7,6 +7,7 @@ draft: false
 summary: 'Learn how to create and use a custom hook to handle asynchronous side effects in React.'
 tags: ['react', 'hooks', 'async', 'effect']
 ---
+
 import Twemoji from './Twemoji.tsx'
 
 ## Custom Hook for Async Effects
@@ -19,19 +20,19 @@ The `useAsync` hook helps manage the lifecycle of an async operation, providing 
 
 ```js
 function useAsync(asyncCallback) {
-  let [state, dispatch] = React.useReducer(asyncReducer);
+  let [state, dispatch] = React.useReducer(asyncReducer)
 
   React.useEffect(() => {
-    let promise = asyncCallback();
-    if (!promise) return;
+    let promise = asyncCallback()
+    if (!promise) return
 
-    dispatch({ type: 'pending' });
+    dispatch({ type: 'pending' })
     promise
-      .then(data => dispatch({ type: 'resolved', data }))
-      .catch(error => dispatch({ type: 'rejected', error }));
-  }, [asyncCallback]);
+      .then((data) => dispatch({ type: 'resolved', data }))
+      .catch((error) => dispatch({ type: 'rejected', error }))
+  }, [asyncCallback])
 
-  return state;
+  return state
 }
 ```
 
@@ -45,30 +46,30 @@ function useAsync(asyncCallback) {
 function Component({ input }) {
   // Wrap the async job in a useCallback to avoid unnecessary re-renders
   let asyncCallback = React.useCallback(() => {
-    if (!input) return;
+    if (!input) return
 
     // Execute async operation (fetch is used as an example)
-    return fetch(input);
-  }, [input]);
+    return fetch(input)
+  }, [input])
 
-  let { status, data, error } = useAsync(asyncCallback);
+  let { status, data, error } = useAsync(asyncCallback)
 
   switch (status) {
     case 'idle':
-      return "Waiting for the async to trigger";
+      return 'Waiting for the async to trigger'
     case 'pending':
-      return "Pending UI";
+      return 'Pending UI'
     case 'rejected':
-      throw error;
+      throw error
     case 'resolved':
-      return "Data UI";
+      return 'Data UI'
     default:
-      throw new Error('This should be impossible');
+      throw new Error('This should be impossible')
   }
 }
 ```
 
-- **How It Works**: 
+- **How It Works**:
   - The `useCallback` ensures the `asyncCallback` only changes when `input` changes, preventing unnecessary re-renders.
   - Based on the `status`, different UI components (loading, error, success) are rendered.
 
@@ -78,24 +79,27 @@ When dealing with async operations, it’s important to clean up side effects if
 
 ```js
 function useSafeDispatch(dispatch) {
-  let mountedRef = React.useRef(false);
-  
-  React.useEffect(() => {
-    mountedRef.current = true;
-    return () => {
-      mountedRef.current = false;
-    };
-  }, []);
+  let mountedRef = React.useRef(false)
 
-  return React.useCallback((...args) => {
-    if (mountedRef.current) {
-      dispatch(...args);
+  React.useEffect(() => {
+    mountedRef.current = true
+    return () => {
+      mountedRef.current = false
     }
-  }, [dispatch]);
+  }, [])
+
+  return React.useCallback(
+    (...args) => {
+      if (mountedRef.current) {
+        dispatch(...args)
+      }
+    },
+    [dispatch]
+  )
 }
 ```
 
-- **Explanation**: 
+- **Explanation**:
   - The `mountedRef` tracks whether the component is mounted or unmounted.
   - `useSafeDispatch` prevents state updates on unmounted components, avoiding memory leaks and React warnings.
 
@@ -105,24 +109,24 @@ Now, let’s modify the `useAsync` hook to incorporate `useSafeDispatch`, making
 
 ```js
 function useAsync(asyncCallback) {
-  let [state, unsafeDispatch] = React.useReducer(asyncReducer);
-  let dispatch = useSafeDispatch(unsafeDispatch);
+  let [state, unsafeDispatch] = React.useReducer(asyncReducer)
+  let dispatch = useSafeDispatch(unsafeDispatch)
 
   React.useEffect(() => {
-    let promise = asyncCallback();
-    if (!promise) return;
+    let promise = asyncCallback()
+    if (!promise) return
 
-    dispatch({ type: 'pending' });
+    dispatch({ type: 'pending' })
     promise
-      .then(data => dispatch({ type: 'resolved', data }))
-      .catch(error => dispatch({ type: 'rejected', error }));
-  }, [asyncCallback]);
+      .then((data) => dispatch({ type: 'resolved', data }))
+      .catch((error) => dispatch({ type: 'rejected', error }))
+  }, [asyncCallback])
 
-  return state;
+  return state
 }
 ```
 
-- **How It Works**: 
+- **How It Works**:
   - `useSafeDispatch` ensures that `dispatch` is only executed if the component is mounted, preventing any updates to unmounted components.
 
 ### Practical Use Cases

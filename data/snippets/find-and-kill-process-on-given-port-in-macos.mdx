@@ -1,18 +1,18 @@
 ---
-heading: "Kill that process"
-title: "Find which process is running on a certain port and kill it"
-date: "2021-09-09"
-type: "Bash"
+heading: 'Kill that process'
+title: 'Find which process is running on a certain port and kill it'
+date: '2021-09-09'
+type: 'Bash'
 draft: false
-summary: "Quickly find and kill processes running on specific ports in MacOS using terminal commands."
-tags: ["bash", "macos", "kill", "process", "port"]
+summary: 'Quickly find and kill processes running on specific ports in MacOS using terminal commands.'
+tags: ['bash', 'macos', 'kill', 'process', 'port']
 ---
 
 import Twemoji from './Twemoji.tsx'
 
 ## Find and Kill Processes Running on Specific Ports
 
-In development, sometimes you need to free up a port being occupied by another process. This guide shows how to identify which process is running on a specific port and kill it using a combination of `lsof` and `kill` commands. 
+In development, sometimes you need to free up a port being occupied by another process. This guide shows how to identify which process is running on a specific port and kill it using a combination of `lsof` and `kill` commands.
 
 #### <Twemoji emoji="warning" /> MacOS Only
 
@@ -82,11 +82,10 @@ As you can see, the process that was running on port `443` is no longer there!
 ### Additional Tips
 
 - **Use `ps` for More Information**: If you want more details about a process before killing it, you can use `ps -p <PID>` to get more information about the process, such as its command and owner.
-  
 - **Be Careful with `kill -9`**: The `-9` flag forces the process to terminate immediately. This might result in data loss if the process is performing important tasks. It’s often safer to try `kill <PID>` first, without `-9`.
 
 ---
 
-By following these steps, you can quickly identify and kill processes occupying specific ports on your MacOS system, freeing up resources for other tasks. 
+By following these steps, you can quickly identify and kill processes occupying specific ports on your MacOS system, freeing up resources for other tasks.
 
 Cheers <Twemoji emoji="clinking-beer-mugs" />

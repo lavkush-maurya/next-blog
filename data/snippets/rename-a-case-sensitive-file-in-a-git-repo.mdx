@@ -55,18 +55,18 @@ Let’s say you want to rename `README.md` to `Readme.md`.
 
 - **Renaming on Case-Insensitive File Systems**: On systems like macOS or Windows, which are case-insensitive, you might encounter situations where the renaming isn’t detected by Git. If `git mv` doesn’t work as expected, you can rename the file to an intermediate name and then rename it to the desired case:
 
-   ```bash
-   git mv README.md temp.md
-   git mv temp.md Readme.md
-   ```
+  ```bash
+  git mv README.md temp.md
+  git mv temp.md Readme.md
+  ```
 
-   This workaround forces Git to recognize the case change.
+  This workaround forces Git to recognize the case change.
 
 - **Renaming Directories**: The same process applies to directories. For example, renaming a directory `Images` to `images` can be done as follows:
 
-   ```bash
-   git mv Images images
-   ```
+  ```bash
+  git mv Images images
+  ```
 
 ### Why IDE or File Manager Renaming Doesn’t Work
 

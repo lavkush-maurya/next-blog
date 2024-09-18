@@ -1,40 +1,45 @@
 ---
-heading: "Markdown code block syntax"
+heading: 'Markdown code block syntax'
 title: "Markdown Code block's basic and advanced syntaxes"
 date: '2021-09-09'
 type: 'Markdown'
 draft: false
-summary: "Learn the basic and advanced syntax for code blocks in Markdown, including language highlighting, filenames, and line numbers."
+summary: 'Learn the basic and advanced syntax for code blocks in Markdown, including language highlighting, filenames, and line numbers.'
 tags: ['markdown', 'code-block', 'syntax']
 ---
 
-## Markdown Code Block Syntax
+![Markdown Code Block Example](/static/images/markdown-code-block.png)
 
 Markdown code blocks are extremely useful for displaying formatted code snippets with syntax highlighting. Here's a comprehensive guide to the basic and advanced features of Markdown code blocks.
 
 ### Basic Syntax
 
-To create a code block in Markdown, use triple backticks (\`\`\`) followed by the language you want to highlight.
+To create a code block in Markdown, use triple backticks (```) followed by the language you want to highlight.
 
-\`\`\`
-\`\`\`language
+````
+```language
 your code goes here
-\`\`\`
-\`\`\`
+````
+
+```
 
 #### Example:
 
-\`\`\`
-\`\`\`javascript
+```
+
+```javascript
 function debounce(func, timeout = 300) {
-  let timer;
+  let timer
   return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, timeout)
+  }
 }
-\`\`\`
-\`\`\`
+```
+
+````
 
 This will appear as:
 
@@ -43,10 +48,10 @@ function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => { func.apply this, args); }, timeout);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
   };
 }
-```
+````
 
 ### Adding a Filename
 
@@ -54,22 +59,23 @@ You can add a filename label to the top of your code block by appending `:filena
 
 #### Example:
 
-\`\`\`
-\`\`\`java:GetRowValue.java
+````
+```java:GetRowValue.java
 private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
-  String[] rowValue = new String[5];
-  rowValue[0] = (i).toString();
-  i = i - 1;
+String[] rowValue = new String[5];
+rowValue[0] = (i).toString();
+i = i - 1;
 
-  rowValue[1] = billDetail.get(i).getProductName();
-  rowValue[2] = billDetail.get(i).getQuantity().toString();
-  rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getProductPrice()));
-  rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getSubTotal());
+rowValue[1] = billDetail.get(i).getProductName();
+rowValue[2] = billDetail.get(i).getQuantity().toString();
+rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getProductPrice()));
+rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getSubTotal());
 
-  return rowValue;
+return rowValue;
 }
-\`\`\`
-\`\`\`
+````
+
+````
 
 This will appear as:
 
@@ -86,7 +92,7 @@ private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
 
   return rowValue;
 }
-```
+````
 
 ### Line Highlighting and Line Numbers
 
@@ -97,9 +103,11 @@ Markdown also allows you to highlight specific lines in your code block and show
 
 #### Example:
 
-\`\`\`
-\`\`\`html {1,4-6,10} showLineNumbers
+````
+```html {1,4-6,10} showLineNumbers
+
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -111,8 +119,9 @@ Markdown also allows you to highlight specific lines in your code block and show
     <h1>Hello world</h1>
   </body>
 </html>
-\`\`\`
-\`\`\`
+````
+
+````
 
 This will appear as:
 
@@ -120,21 +129,20 @@ This will appear as:
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Hello world</title>
   </head>
   <body>
     <h1>Hello world</h1>
   </body>
 </html>
-```
+````
 
 ### Additional Tips
 
 - **Indentation**: Be careful with indentation in your code blocks. Incorrect indentation may break the formatting, especially in languages like Python or YAML.
-  
 - **Code Block Customization**: Depending on the Markdown editor or platform you use (e.g., GitHub, VS Code, Jekyll), some syntax options like line highlighting or filenames might require additional plugins or support.
 
 ### Conclusion
@@ -142,5 +150,3 @@ This will appear as:
 Mastering Markdown code blocks can significantly improve how you present code in your documentation, README files, or blogs. By using advanced features like filenames and line numbers, you can make your code examples more informative and visually appealing.
 
 Happy coding!
-
-![Markdown Code Block Example](/static/images/markdown-code-block.png)

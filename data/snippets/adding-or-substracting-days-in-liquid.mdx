@@ -8,7 +8,6 @@ summary: "Adding/subtracting days in Shopify's Liquid template language"
 tags: ['liquid', 'shopify', 'date']
 ---
 
-
 In Shopify's Liquid template language, manipulating dates such as adding or subtracting days is not as straightforward as in other programming languages. However, with the right approach, you can achieve this by leveraging Liquid's built-in filters and variables. In this post, we’ll walk through how to work with dates and perform basic operations like adding or subtracting days.
 
 ## Step-by-Step Guide
@@ -30,92 +29,17 @@ Below is an example demonstrating how to add or subtract days from the current d
 <div>{{days}} days after today: {{ after }}</div>
 ```
 
-### Resulting HTML:
+Result:
 
 ```html
-Today: Aug 29
-4 days before today: Aug 25
-4 days after today: Sep 02
+<!-- HTML -->
+Today: Aug 29 4 days before today: Aug 25 4 days after today: Sep 02
 ```
 
-### Code Explanation:
+Explaination:
 
-- **Convert `now` to seconds**: We first convert the current date (represented by the `'now'` keyword) into Unix time (seconds since January 1, 1970) using the `| date: "%s"` filter.
-  
-  ```liquid
-  {% assign now = 'now' | date: "%s" %}
-  ```
+- First convert `now` to seconds since 1970 with filter `| date: "%s"`.
+- Convert `days` range to seconds `x 24 x 60 x 60`
+- Use filters `| minus` or `| plus` to get the result and parse back to date format with `date: "%b %d"` filter
 
-- **Convert days to seconds**: Multiply the number of days by `24` (hours), `60` (minutes), and `60` (seconds) to get the total in seconds.
-
-  ```liquid
-  {% assign ms = days | times: 24 | times: 60 | times: 60 %}
-  ```
-
-- **Add/Subtract days**: We use the `| plus` and `| minus` filters to add or subtract the calculated seconds from the current time.
-
-  ```liquid
-  {% assign before = now | minus: ms | date: "%b %d" %}
-  {% assign after = now | plus: ms | date: "%b %d" %}
-  ```
-
-- **Formatting the date**: Finally, convert the Unix timestamp back into a human-readable date format using the `| date` filter with the format string `"%b %d"`, which outputs the abbreviated month followed by the day.
-
----
-
-## Enhanced Insights:
-
-### 1. **Understanding Liquid Date Formatting**:
-   Liquid's date filter is based on the `strftime` formatting syntax. Here's a quick rundown of the most commonly used date format specifiers in Liquid:
-
-   - **`%b`**: Abbreviated month name (e.g., Jan, Feb, Mar)
-   - **`%d`**: Day of the month (01-31)
-   - **`%Y`**: Full year (e.g., 2021)
-   - **`%H`**: Hour (00-23)
-   - **`%M`**: Minute (00-59)
-   
-   Using the right format specifier helps in presenting dates in various formats depending on your requirements.
-
-   For example, to display the full date:
-   ```liquid
-   {{ now | date: "%Y-%m-%d" }}
-   ```
-
-   Would result in:
-   ```html
-   2021-08-29
-   ```
-
-### 2. **Limitations of Liquid's Date Operations**:
-   While Liquid does allow basic date operations like adding or subtracting days, it doesn’t have built-in support for more advanced date manipulations (like handling time zones or complex date arithmetic). In such cases, you'd have to handle those operations externally, or within the back-end logic if you're working in Shopify's framework.
-
-### 3. **Practical Use Cases**:
-   - **Creating sales banners**: You can show a countdown or date-based promotion banners that automatically update based on the current date.
-   - **Upcoming events or shipping deadlines**: Display messages to customers informing them how many days are left until a specific event or deadline.
-
-### 4. **Consider Time Zones**:
-   If you're working with customers across different time zones, you might want to use a fixed time (like UTC) when manipulating dates, or account for Shopify's default handling of time zones, which is based on store settings.
-
----
-
-## Visual Overview:
-
-Here’s a visual example of how this logic can be implemented for a storefront’s promotional banner:
-
-```html
-<!-- Shopify Promo Banner -->
-{% assign promo_days = 7 %}
-{% assign promo_expiry = 'now' | plus: promo_days | date: "%b %d" %}
-
-<div class="promo-banner">
-   <p>Hurry! Offer expires on {{ promo_expiry }}. Don't miss out!</p>
-</div>
-```
-
-This will create a dynamic promotional message that updates every day, automatically reflecting a countdown to the expiry date.
-
----
-
-## Conclusion:
-
-Manipulating dates in Liquid is a powerful way to dynamically display relevant information in your Shopify store. With some basic date arithmetic, you can create promotions, show deadlines, or manage time-sensitive content effectively. For more advanced date operations, consider pairing Liquid with external scripts or apps.
+The format for Liquid date is the same as [strftime](http://strftime.net/)
