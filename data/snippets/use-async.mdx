@@ -1,102 +1,138 @@
 ---
 heading: 'Use an async effect'
-title: 'A custom hooks to use an async effect'
+title: 'A custom hook to use an async effect'
 date: '2022-02-22'
 type: 'React'
 draft: false
-summary: 'A custom hooks to use an async effect'
+summary: 'Learn how to create and use a custom hook to handle asynchronous side effects in React.'
 tags: ['react', 'hooks', 'async', 'effect']
 ---
 import Twemoji from './Twemoji.tsx'
 
-Custom hooks to use an async effect
+## Custom Hook for Async Effects
+
+In React, handling asynchronous side effects within `useEffect` can become tricky. A custom hook can simplify the process and make your code more reusable. Here’s how you can build a custom hook that handles async effects, including managing loading states and cleaning up side effects when the component unmounts.
+
+### Basic `useAsync` Hook
+
+The `useAsync` hook helps manage the lifecycle of an async operation, providing loading (`pending`), success (`resolved`), and error (`rejected`) states.
 
 ```js
 function useAsync(asyncCallback) {
-  let [state, dispatch] = React.useReducer(asyncReducer)
+  let [state, dispatch] = React.useReducer(asyncReducer);
 
   React.useEffect(() => {
-    let promise = asyncCallback()
-    if (!promise) return
+    let promise = asyncCallback();
+    if (!promise) return;
 
-    dispatch({ type: 'pending' })
+    dispatch({ type: 'pending' });
     promise
       .then(data => dispatch({ type: 'resolved', data }))
-      .catch(error => dispatch({ type: 'rejected', error }))
-  }, [asyncCallback])
+      .catch(error => dispatch({ type: 'rejected', error }));
+  }, [asyncCallback]);
 
-  return state
+  return state;
 }
 ```
 
-Usage:
+- **Key Components**:
+  - `useReducer` to manage different states (idle, pending, resolved, rejected).
+  - `useEffect` to trigger the async job when the component mounts or updates.
+
+### Usage Example
 
 ```js
 function Component({ input }) {
-  // Remember to wrap the async job in a useCallback
+  // Wrap the async job in a useCallback to avoid unnecessary re-renders
   let asyncCallback = React.useCallback(() => {
-    if (!input) return
+    if (!input) return;
 
-    // Run the async effect (fetch is an example)
-    return fetch(input)
-  }, [input])
+    // Execute async operation (fetch is used as an example)
+    return fetch(input);
+  }, [input]);
 
-  let { status, data, error } = useAsync(asyncCallback)
+  let { status, data, error } = useAsync(asyncCallback);
 
   switch (status) {
     case 'idle':
-      return "Waiting for the async to trigger"
+      return "Waiting for the async to trigger";
     case 'pending':
-      return "Pending UI"
+      return "Pending UI";
     case 'rejected':
-      throw error
+      throw error;
     case 'resolved':
-      return "Data UI"
+      return "Data UI";
     default:
-      throw new Error('This should be impossible')
+      throw new Error('This should be impossible');
   }
 }
 ```
 
-How to clean the side effect (the async job start but then the component unmounted) ? - `useSafeDispatch` !
+- **How It Works**: 
+  - The `useCallback` ensures the `asyncCallback` only changes when `input` changes, preventing unnecessary re-renders.
+  - Based on the `status`, different UI components (loading, error, success) are rendered.
+
+### Cleaning Up Side Effects: `useSafeDispatch`
+
+When dealing with async operations, it’s important to clean up side effects if the component unmounts before the operation completes. This can be handled by a `useSafeDispatch` hook, which ensures that `dispatch` is only called if the component is still mounted.
 
 ```js
 function useSafeDispatch(dispatch) {
-  let mountedRef = React.useRef(false)
+  let mountedRef = React.useRef(false);
+  
   React.useEffect(() => {
-    mountedRef.current = true
+    mountedRef.current = true;
     return () => {
-      mountedRef.current = false
-    }
-  }, [])
+      mountedRef.current = false;
+    };
+  }, []);
 
   return React.useCallback((...args) => {
     if (mountedRef.current) {
-      dispatch(...args)
+      dispatch(...args);
     }
-  }, [dispatch])
+  }, [dispatch]);
 }
 ```
 
-Now change the `useAsync` function:
+- **Explanation**: 
+  - The `mountedRef` tracks whether the component is mounted or unmounted.
+  - `useSafeDispatch` prevents state updates on unmounted components, avoiding memory leaks and React warnings.
+
+### Enhanced `useAsync` with Safe Dispatch
+
+Now, let’s modify the `useAsync` hook to incorporate `useSafeDispatch`, making it safer for unmounting scenarios.
 
 ```js
 function useAsync(asyncCallback) {
-  let [state, unsafeDispatch] = React.useReducer(asyncReducer)
-  let dispatch = useSafeDispatch(unsafeDispatch)
+  let [state, unsafeDispatch] = React.useReducer(asyncReducer);
+  let dispatch = useSafeDispatch(unsafeDispatch);
 
   React.useEffect(() => {
-    let promise = asyncCallback()
-    if (!promise) return
+    let promise = asyncCallback();
+    if (!promise) return;
 
-    dispatch({ type: 'pending' })
+    dispatch({ type: 'pending' });
     promise
       .then(data => dispatch({ type: 'resolved', data }))
-      .catch(error => dispatch({ type: 'rejected', error }))
-  }, [asyncCallback])
+      .catch(error => dispatch({ type: 'rejected', error }));
+  }, [asyncCallback]);
 
-  return state
+  return state;
 }
 ```
 
-Cheers <Twemoji emoji="clinking-beer-mugs" />
+- **How It Works**: 
+  - `useSafeDispatch` ensures that `dispatch` is only executed if the component is mounted, preventing any updates to unmounted components.
+
+### Practical Use Cases
+
+- **Fetching Data**: You can use this hook to fetch data from an API and handle loading, success, and error states effectively.
+- **Asynchronous Validations**: In forms, async validations (e.g., checking if an email already exists) can be handled using this pattern.
+- **Cleanup of Async Jobs**: Safely managing async operations and ensuring no memory leaks in large-scale applications.
+
+### Conclusion
+
+The `useAsync` hook and `useSafeDispatch` are essential tools for handling async side effects in React, especially when the component lifecycle is involved. By safely managing dispatches and cleanups, you can avoid common pitfalls like memory leaks and unhandled promises.
+
+Happy coding! <Twemoji emoji="clinking-beer-mugs" />

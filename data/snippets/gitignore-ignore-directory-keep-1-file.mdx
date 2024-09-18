@@ -4,20 +4,63 @@ title: 'Ignore all files in a directory except a specific file'
 date: '2021-08-27'
 type: 'Git'
 draft: false
-summary: 'Ignore all files in a directory except a specific file'
+summary: 'Learn how to ignore all files in a directory except a specific file using .gitignore'
 tags: ['git', 'gitignore']
 ---
 
 import Twemoji from './Twemoji.tsx'
 
-Keep 1 file and ignore others in a directory
+![Gitignore Example](/static/images/gitignore-tip-placeholder.jpg)
 
-`.gitignore`
+## How to Ignore All Files in a Directory Except a Specific File
 
-```bash {5} showLineNumbers
-# Ignore all file in a directory
+There are situations in Git where you may want to ignore all files within a directory but keep one specific file under version control. For example, you might want to track a configuration file while ignoring all others. This can be achieved using a `.gitignore` file.
+
+### Basic `.gitignore` Example
+
+In your `.gitignore` file, the pattern is as follows:
+
+```bash
+# Ignore all files in a directory
 directory/*
 
 # Keep only this file
 !directory/file-to-keep.ext
 ```
+
+### How It Works
+
+1. The first line `directory/*` tells Git to ignore everything inside the `directory/` folder.
+2. The second line `!directory/file-to-keep.ext` tells Git to explicitly _not ignore_ the file `file-to-keep.ext` in that directory.
+
+This way, you can ensure that while the folder's contents remain untracked, one file stays under version control.
+
+### Example Use Case
+
+Let’s say you have a configuration directory with many generated files, but you only want to keep `config.json`:
+
+```bash
+config/*
+!config/config.json
+```
+
+This configuration ensures that only `config.json` is tracked, while all other files in the `config/` directory are ignored.
+
+### Notes and Tips
+
+- **Order matters**: The order of lines in the `.gitignore` file is important. You must first ignore the entire directory and then add the exception for the file you want to keep.
+- **Subdirectories**: You can apply the same rule for files in subdirectories. For example:
+  ```bash
+  directory/subdirectory/*
+  !directory/subdirectory/file-to-keep.ext
+  ```
+- **Tracking changes**: If the file you want to keep is already tracked and you're just updating your `.gitignore`, Git will continue to track it even if it's listed to be ignored. You can untrack the file using:
+  ```bash
+  git rm --cached directory/file-to-remove.ext
+  ```
+
+---
+
+By following this approach, you can keep your repository clean while ensuring that only essential files are tracked. This can be useful in scenarios such as tracking only environment files or configuration settings in a project.
+
+Keep your repo clean! <Twemoji emoji="broom" />

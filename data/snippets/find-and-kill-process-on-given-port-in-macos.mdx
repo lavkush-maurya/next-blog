@@ -4,20 +4,27 @@ title: "Find which process is running on a certain port and kill it"
 date: "2021-09-09"
 type: "Bash"
 draft: false
-summary: "Find which process is running on a certain port and kill it"
+summary: "Quickly find and kill processes running on specific ports in MacOS using terminal commands."
 tags: ["bash", "macos", "kill", "process", "port"]
 ---
+
 import Twemoji from './Twemoji.tsx'
 
-#### <Twemoji emoji="warning" /> MacOS only
+## Find and Kill Processes Running on Specific Ports
 
-List all the processes by ports with their PIDs
+In development, sometimes you need to free up a port being occupied by another process. This guide shows how to identify which process is running on a specific port and kill it using a combination of `lsof` and `kill` commands. 
+
+#### <Twemoji emoji="warning" /> MacOS Only
+
+### Step 1: List All Processes Listening on Ports
+
+To get a list of all processes that are currently listening on specific ports, use the following command:
 
 ```bash
 $ sudo lsof -i -P | grep LISTEN
 ```
 
-The result should look like this:
+This command will show all processes that are listening on any port, with their associated PID (Process ID). The result should look something like this:
 
 ```bash
 rapportd    123            lavkush    5u  IPv4 0x84512a8572c9xxxx      0t0    TCP *:62003 (LISTEN)
@@ -28,22 +35,39 @@ node      38238            lavkush   22u  IPv6 0x84512a857627xxxx      0t0    TC
 node      68336            lavkush   22u  IPv6 0x84512a858bb4xxxx      0t0    TCP *:443 (LISTEN)
 ```
 
-The 2nd column is the PID of the process on the port in the last column
+### Step 2: Identify the PID of the Process
 
-Now kill the process in that port by using `sudo kill -9 <PID>`
+In the output, the second column corresponds to the Process ID (PID) of the process running on the port. The last column shows the port number the process is using.
+
+For instance, in the last line, the process `node` with PID `68336` is running on port `443`.
+
+### Step 3: Kill the Process
+
+Once you know the PID of the process, you can kill it using the `kill` command. The command to use is:
+
+```bash
+$ sudo kill -9 <PID>
+```
+
+For example, to kill the process running on port `443`, the command would be:
 
 ```bash
 $ sudo kill -9 68336
 ```
 
-`68336` is the PID of the process running on port `443`
+This will immediately stop the process.
 
+### Step 4: Verify That the Process Has Stopped
 
-Check again
+To confirm that the process has been successfully terminated, run the `lsof` command again to see if the process is still listening on the port:
 
 ```bash
 $ sudo lsof -i -P | grep LISTEN
+```
 
+You should no longer see the process with PID `68336` in the output.
+
+```bash
 rapportd    123            lavkush    5u  IPv4 0x84512a8572c9xxxx      0t0    TCP *:62003 (LISTEN)
 rapportd    123            lavkush    6u  IPv6 0x84512a857627xxxx      0t0    TCP *:62003 (LISTEN)
 mongod      414            lavkush    9u  IPv4 0x84512a857926xxxx      0t0    TCP localhost:27017 (LISTEN)
@@ -51,6 +75,18 @@ Loom       3315            lavkush   28u  IPv4 0x84512a85785cxxxx      0t0    TC
 node      38238            lavkush   22u  IPv6 0x84512a857627xxxx      0t0    TCP *:5000 (LISTEN)
 ```
 
-The process on port `443` is already stopped!
+As you can see, the process that was running on port `443` is no longer there!
+
+---
+
+### Additional Tips
+
+- **Use `ps` for More Information**: If you want more details about a process before killing it, you can use `ps -p <PID>` to get more information about the process, such as its command and owner.
+  
+- **Be Careful with `kill -9`**: The `-9` flag forces the process to terminate immediately. This might result in data loss if the process is performing important tasks. It’s often safer to try `kill <PID>` first, without `-9`.
+
+---
+
+By following these steps, you can quickly identify and kill processes occupying specific ports on your MacOS system, freeing up resources for other tasks. 
 
 Cheers <Twemoji emoji="clinking-beer-mugs" />

@@ -4,24 +4,28 @@ title: "Markdown Code block's basic and advanced syntaxes"
 date: '2021-09-09'
 type: 'Markdown'
 draft: false
-summary: "Markdown Code block's basic and advanced syntaxes"
+summary: "Learn the basic and advanced syntax for code blocks in Markdown, including language highlighting, filenames, and line numbers."
 tags: ['markdown', 'code-block', 'syntax']
 ---
 
-## Basic syntax
+## Markdown Code Block Syntax
 
-Use triple backticks to create a code block in markdown
+Markdown code blocks are extremely useful for displaying formatted code snippets with syntax highlighting. Here's a comprehensive guide to the basic and advanced features of Markdown code blocks.
 
-````
-```language
+### Basic Syntax
+
+To create a code block in Markdown, use triple backticks (\`\`\`) followed by the language you want to highlight.
+
+\`\`\`
+\`\`\`language
 your code goes here
-```
-````
+\`\`\`
+\`\`\`
 
-Example
+#### Example:
 
-````
-```javascript
+\`\`\`
+\`\`\`javascript
 function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
@@ -29,44 +33,45 @@ function debounce(func, timeout = 300) {
     timer = setTimeout(() => { func.apply(this, args); }, timeout);
   };
 }
-```
-````
+\`\`\`
+\`\`\`
 
-will appear as:
+This will appear as:
 
 ```javascript
 function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    timer = setTimeout(() => { func.apply this, args); }, timeout);
   };
 }
 ```
 
-## Filename
+### Adding a Filename
 
-Add `:filename.ext` after `language` to render with filename label on the top of block
+You can add a filename label to the top of your code block by appending `:filename.ext` after the language name.
 
-Example:
+#### Example:
 
-````
-```java:GetRowValue.java
+\`\`\`
+\`\`\`java:GetRowValue.java
 private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
   String[] rowValue = new String[5];
   rowValue[0] = (i).toString();
   i = i - 1;
 
-  rowValue[1] = billDetail.get(i).getTenSanPham();
-  rowValue[2] = billDetail.get(i).getSoLuong().toString();
-  rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getDonGiaSanPham()));
-  rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getThanhTien());
+  rowValue[1] = billDetail.get(i).getProductName();
+  rowValue[2] = billDetail.get(i).getQuantity().toString();
+  rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getProductPrice()));
+  rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getSubTotal());
+
   return rowValue;
 }
-```
-````
+\`\`\`
+\`\`\`
 
-will appear as:
+This will appear as:
 
 ```java:GetRowValue.java
 private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
@@ -83,14 +88,34 @@ private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
 }
 ```
 
-## Line highlighting and line-numbers
+### Line Highlighting and Line Numbers
 
-- Add `{numbers}` property after `language` to highlight line
-- Add `showLineNumbers` property after `language` to render with line numbers
+Markdown also allows you to highlight specific lines in your code block and show line numbers.
 
-Example:
+- Use `{numbers}` after the language to highlight specific lines.
+- Use `showLineNumbers` to display line numbers in the block.
 
-````
+#### Example:
+
+\`\`\`
+\`\`\`html {1,4-6,10} showLineNumbers
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello world</title>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+  </body>
+</html>
+\`\`\`
+\`\`\`
+
+This will appear as:
+
 ```html {1,4-6,10} showLineNumbers
 <!DOCTYPE html>
 <html lang="en">
@@ -105,22 +130,17 @@ Example:
   </body>
 </html>
 ```
-````
 
-will appear as:
+### Additional Tips
 
-```html {1,4-6,10} showLineNumbers
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello world</title>
-  </head>
-  <body>
-    <h1>Hello world</h1>
-  </body>
-</html>
-```
+- **Indentation**: Be careful with indentation in your code blocks. Incorrect indentation may break the formatting, especially in languages like Python or YAML.
+  
+- **Code Block Customization**: Depending on the Markdown editor or platform you use (e.g., GitHub, VS Code, Jekyll), some syntax options like line highlighting or filenames might require additional plugins or support.
 
+### Conclusion
+
+Mastering Markdown code blocks can significantly improve how you present code in your documentation, README files, or blogs. By using advanced features like filenames and line numbers, you can make your code examples more informative and visually appealing.
+
+Happy coding!
+
+![Markdown Code Block Example](/static/images/markdown-code-block.png)

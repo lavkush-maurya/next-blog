@@ -4,17 +4,26 @@ title: 'String casing utilities in JavaScript'
 date: '2023-02-21'
 type: 'Typescript'
 draft: false
-summary: 'Usefult string casing utilities functions in JavaScript'
+summary: 'Useful string casing utility functions in JavaScript'
 tags: ['javascript', 'typescript', 'string', 'casing', 'utilities']
 ---
 
-import Twemoji from './Twemoji.tsx'
+## String Casing Utilities in JavaScript
 
-I know that we suppose to have a library for this, but sometimes what we need is just a simple function to handle 1 or 2 cases <Twemoji emoji="man-shrugging" />
+Sometimes, instead of adding a bulky library to handle string casing, all we need are a few simple, reusable functions for converting strings from one case format to another. This article presents handy utility functions for these use cases. Feel free to copy and paste them into your project!
 
-So here we go, just copy and paste the code below to your app.
+## Common String Casing Conversions
 
-### Capitalize all words
+When working with JavaScript, you'll frequently encounter various casing styles. The right utility function can save time and ensure consistency. Here are some key string cases you’ll likely use:
+
+- **PascalCase**: Every word starts with a capital letter, no spaces (e.g., `MyVariable`).
+- **camelCase**: Similar to PascalCase, but the first letter is lowercase (e.g., `myVariable`).
+- **kebab-case**: Words are separated by hyphens, all lowercase (e.g., `my-variable`).
+- **Plain Text**: Natural human-readable format, typically in lowercase (e.g., `my variable`).
+
+Let’s explore some essential utility functions to convert between these formats.
+
+### 1. Capitalize All Words in a String
 
 ```typescript
 /**
@@ -23,45 +32,46 @@ So here we go, just copy and paste the code below to your app.
  * @param str The string to capitalize.
  * @returns The capitalized string.
  * @example
- * capitalizeAll('foo bar') // "Foo Bar"
+ * capitalizeAll('hello world') // "Hello World"
  */
 function capitalizeAll(str: string): string {
-  return capitalize(str.replace(/\s./g, ($1) => $1.toUpperCase()))
+  return str.replace(/\b\w/g, (char) => char.toUpperCase());
 }
 ```
 
-### `PascalCase` to plain text
+### 2. Convert PascalCase to Plain Text
 
 ```typescript
 /**
- * Convert a pascal case string to plain text.
+ * Convert a PascalCase string to plain text.
  *
  * @param str The string to convert.
  * @returns The plain text.
  * @example
- * pascalCaseToPlainText('FooBar') // "foo bar"
+ * pascalCaseToPlainText('HelloWorld') // "hello world"
  */
 function pascalCaseToPlainText(str: string): string {
-  return str.replace(/[A-Z]/g, ($1) => ` ${$1.toLowerCase()}`).trim()
+  return str.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
 }
 ```
 
-### `camelCase` to `kebab-case`
+### 3. Convert camelCase to kebab-case
 
 ```typescript
 /**
  * Convert a camel case string to kebab case.
+ *
  * @param str The string to convert.
  * @returns The kebab case string.
  * @example
- * camelCaseToKebabCase('fooBar') // "foo-bar"
+ * camelCaseToKebabCase('helloWorld') // "hello-world"
  */
 function camelCaseToKebabCase(str: string): string {
-  return str.replace(/[A-Z]/g, ($1) => `-${$1.toLowerCase()}`).trim()
+  return str.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 ```
 
-### `kebab-case` to plain text
+### 4. Convert kebab-case to Plain Text
 
 ```typescript
 /**
@@ -70,27 +80,57 @@ function camelCaseToKebabCase(str: string): string {
  * @param str The string to convert.
  * @returns The plain text.
  * @example
- * kebabCaseToPlainText('foo-bar') // "foo bar"
+ * kebabCaseToPlainText('hello-world') // "hello world"
  */
 function kebabCaseToPlainText(str: string): string {
-  return str.replace(/-/g, ' ')
+  return str.replace(/-/g, ' ');
 }
 ```
 
-### Plain text to `kebab-case`
+### 5. Convert Plain Text to kebab-case
 
 ```typescript
 /**
- * Convert a plain text string to kebab case.
+ * Convert plain text to kebab case.
  *
  * @param str The string to convert.
  * @returns The kebab case string.
  * @example
- * toKebabCase('hello World') // "hello-world"
+ * toKebabCase('Hello World') // "hello-world"
  */
 function toKebabCase(str: string): string {
-  return str.replace(/\s/g, '-').toLowerCase()
+  return str.replace(/\s+/g, '-').toLowerCase();
 }
 ```
 
-And many more in the future. Stay tuned!
+## Visual Representation of String Conversions
+
+Here’s a quick look at how the string transformations work:
+
+| Input (String)      | Output (Transformed)        | Function Used            |
+|---------------------|-----------------------------|---------------------------|
+| `hello world`       | `Hello World`               | `capitalizeAll`           |
+| `HelloWorld`        | `hello world`               | `pascalCaseToPlainText`   |
+| `helloWorld`        | `hello-world`               | `camelCaseToKebabCase`    |
+| `hello-world`       | `hello world`               | `kebabCaseToPlainText`    |
+| `Hello World`       | `hello-world`               | `toKebabCase`             |
+
+## Practical Uses for Casing Conversions
+
+These utilities are incredibly useful for:
+- **Formatting input data** in different casing styles (e.g., user input forms).
+- **Converting API responses** to match the naming conventions in your app.
+- **Displaying data** in a more human-readable format on a UI.
+
+### Why Not Use Libraries?
+
+While libraries like Lodash or Underscore provide utility functions for string conversions, it’s often overkill for small projects. These minimal functions can easily handle the job without adding unnecessary dependencies to your codebase.
+
+## What’s Next?
+
+Stay tuned for more string casing utilities! We’re planning to add functions for:
+- **snake_case** transformations
+- Converting between multiple cases in one go
+- Detecting string casing types
+
+Feel free to comment with your suggestions or feature requests!

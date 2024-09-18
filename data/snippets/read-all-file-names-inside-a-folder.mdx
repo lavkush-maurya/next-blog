@@ -4,28 +4,51 @@ title: 'Read all file names in a directory'
 date: '2021-08-28'
 type: 'Bash'
 draft: false
-summary: 'Read all file names in a directory'
+summary: 'Learn how to quickly read and list all file names in a directory using Node.js'
 tags: ['bash', 'shell', 'script']
 ---
 
-Required: `node.js` installation.
+## Reading All File Names in a Directory Using Node.js
 
-Quickly get all files' names inside a folder
+In certain scenarios, you may want to retrieve all file names from a directory for processing or simply to list them. This can easily be done using Node.js.
+
+### Prerequisite: Node.js Installation
+
+Ensure you have Node.js installed on your system. You can check the version using:
 
 ```bash
-$ console.log(fs.readdirSync('./folder-path'))
+$ node -v
 ```
 
-Example:
+If Node.js is installed, you should see something like:
+
+```
+v14.17.0
+```
+
+### Reading Files from a Directory
+
+You can use Node.js' built-in `fs` module to read the content of a directory. The `readdirSync()` method returns an array containing all file names in the specified directory.
 
 ```bash
-# Make sure node.js installed
+console.log(fs.readdirSync('./folder-path'));
+```
+
+### Example:
+
+Here's how you can use Node.js to list files inside a folder:
+
+```bash
+# Ensure Node.js is installed
 $ node -v
 v14.17.0
 
-# Now it's good to go
+# Open Node.js REPL
 $ node
-> console.log(fs.readdirSync('./folder'))
+
+# Inside Node.js REPL, execute the following
+> const fs = require('fs');
+> console.log(fs.readdirSync('./folder'));
 [
   '.DS_Store',
   'authors',
@@ -37,3 +60,39 @@ $ node
   'snippets'
 ]
 ```
+
+### Using a Script
+
+If you want to automate this process using a script, you can create a `listFiles.js` script and run it:
+
+```javascript
+const fs = require('fs');
+
+// Specify your directory
+const directoryPath = './folder';
+
+// Read and display file names
+fs.readdir(directoryPath, (err, files) => {
+  if (err) {
+    return console.log('Unable to scan directory: ' + err);
+  }
+  console.log('Files in directory:', files);
+});
+```
+
+Save the above code in a file named `listFiles.js`, and execute it using the following command:
+
+```bash
+$ node listFiles.js
+```
+
+### Practical Applications
+
+- **File management**: You can use this approach to automate tasks such as renaming, processing, or archiving files in a directory.
+  
+- **Dynamic imports**: In a web or Node.js app, you might want to dynamically import or process files without hardcoding file names.
+
+### Conclusion
+
+With Node.js, reading file names in a directory is simple and efficient. This method can be extended for various purposes, such as file manipulation, generating lists of assets, or automating tasks in a development workflow.
+
