@@ -52,7 +52,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ) : (
             <Link
               href={url}
-              className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              className="text-base font-medium leading-6 text-lime-700 hover:text-lime-600 dark:text-primary-400 dark:hover:text-primary-300"
               aria-label={`Link to ${title}`}
             >
               <span>Learn more &rarr;</span>

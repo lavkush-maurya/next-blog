@@ -62,6 +62,7 @@ module.exports = {
         dark: '#22272e',
         code: {
           green: '#b5f4a5',
+          lime: '#4d7c0f',
           yellow: '#ffe484',
           purple: '#d9a9ff',
           red: '#ff8383',
@@ -89,11 +90,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.lime.700'),
               '&:hover': {
-                color: theme('colors.primary.600'),
+                color: theme('colors.lime.500'),
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.lime.400') },
             },
             h1: {
               fontWeight: '700',

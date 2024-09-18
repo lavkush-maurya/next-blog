@@ -91,7 +91,8 @@ samp {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: rgb(222 216 210) !important;
+  background-color: rgba(255, 255, 255, 0.87) !important;
+  /* background-color: rgb(222 216 210) !important; */
 }
 html,
 .lightbox-overlay {

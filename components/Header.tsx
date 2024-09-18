@@ -52,8 +52,8 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
                     className={clsx(
                       'inline-block rounded px-2 py-1 font-medium text-gray-900 dark:text-gray-100 sm:px-3 sm:py-2',
                       router.pathname.startsWith(link.href)
-                        ? 'bg-gray-200 dark:bg-gray-700'
-                        : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                        ? 'animate-pulse bg-gray-200 shadow-md shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800'
+                        : 'shadow-sm shadow-gray-300 hover:bg-gray-200 dark:shadow-gray-600 dark:hover:bg-gray-700'
                     )}
                   >
                     {link.title}
@@ -65,7 +65,7 @@ export function Header({ onToggleNav }: { onToggleNav: () => void }) {
 
           <ThemeSwitcher />
           <button
-            className="ml-2 mr-1 h-8 w-8 rounded sm:hidden"
+            className="ml-2 mr-1 h-8 w-8 animate-pulse rounded shadow-md shadow-gray-400 dark:shadow-gray-800 sm:hidden"
             type="button"
             aria-label="Toggle Menu"
             onClick={onToggleNav}
