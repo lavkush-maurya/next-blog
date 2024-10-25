@@ -1,0 +1,120 @@
+---
+title: 'Exploring Next.js 15 RC: A Sneak Peek into New Features and Performance Improvements'
+date: '2024-11-25'
+tags: ['Next.js', 'React 19', 'React Compiler', 'Partial Prerendering', 'Performance']
+draft: false
+summary: 'A detailed look at the key features in Next.js 15 RC, including React 19 support, improved caching, and experimental performance tools.'
+images: ['/static/images/nextjs15-rc.png']
+authors: ['default']
+---
+
+import SocialAccounts from './SocialAccounts.tsx'
+import Twemoji from './Twemoji.tsx'
+import UnsplashPhotoInfo from './UnsplashPhotoInfo.tsx'
+
+![Next.js 15 Release Thumbnail](/static/images/nextjs15-rc.png)
+
+## Overview of Next.js 15 RC and React 19
+
+With **Next.js 15 Release Candidate (RC)**, developers get an opportunity to test significant new features before the stable release, including **React 19** support, **improved caching defaults**, **Partial Prerendering (PPR)**, and the experimental **React Compiler**. These additions are aimed at making applications faster, more efficient, and easier to manage. Let's dive into each feature and explore how they can impact modern web development.
+
+## Key Features in Next.js 15 RC
+
+### 1. React 19 RC Support
+
+The Next.js App Router is now compatible with **React 19 RC**, which brings exciting new APIs and features for both client and server environments. One standout feature is **Actions**, a new API designed to simplify client-server interactions, making it easier to handle server actions directly within components.
+
+> **Note**: Some third-party libraries may not yet be compatible with React 19, so check library compatibility before migrating fully.
+
+### 2. Experimental React Compiler
+
+The new **React Compiler** is an experimental tool that optimizes performance by minimizing the need for `useMemo` and `useCallback`, reducing the likelihood of bugs and making the code easier to maintain.
+
+To try it out, install the `babel-plugin-react-compiler` and enable the experimental feature in `next.config.js`:
+
+```js
+// next.config.js
+const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
+}
+
+module.exports = nextConfig
+```
+
+Or set the compiler in opt-in mode:
+
+```js
+// next.config.js
+const nextConfig = {
+  experimental: {
+    reactCompiler: {
+      compilationMode: 'annotation',
+    },
+  },
+}
+
+module.exports = nextConfig
+```
+
+### 3. Caching Changes and Performance Optimizations
+
+Caching updates in Next.js 15 RC simplify data handling by making `fetch` requests and **GET Route Handlers** uncached by default. This means data is fetched fresh with every request, enhancing dynamic behavior. However, caching can still be configured when needed:
+
+```js
+fetch('https://api.example.com', { cache: 'force-cache' })
+```
+
+#### Client Router Cache Adjustments
+
+In Next.js 15, **Client Router Cache** no longer caches Page components by default. This ensures the latest data is displayed without needing manual configuration.
+
+### 4. Partial Prerendering (PPR)
+
+**Partial Prerendering (PPR)** enables a mix of static and dynamic rendering within a single page. This powerful feature, now available for incremental adoption, allows developers to wrap dynamic components within `Suspense`, optimizing initial load time by streaming dynamic elements.
+
+```jsx
+// app/page.js
+import { Suspense } from 'react'
+import StaticComponent from '@/app/static'
+import DynamicComponent from '@/app/dynamic'
+
+export const experimental_ppr = true
+
+export default function Page() {
+  return (
+    <>
+      <StaticComponent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <DynamicComponent />
+      </Suspense>
+    </>
+  )
+}
+```
+
+## Experimental `next/after` API for Post-Response Tasks
+
+With the `next/after` API, you can defer tasks like logging or analytics until after a response has finished, optimizing response time. This is especially useful for background tasks that don’t need to block the user experience.
+
+```js
+import { unstable_after as after } from 'next/server'
+
+after(() => {
+  console.log('Executing post-response task.')
+})
+```
+
+## Final Thoughts on Next.js 15 RC
+
+The features introduced in **Next.js 15 RC** reflect the framework’s commitment to performance and usability. While the RC version may include breaking changes, experimenting with these features now can help teams prepare for the future and fine-tune application performance before the stable release.
+
+---
+
+Next.js continues to evolve with each update, making it an ideal choice for building high-performance, scalable web applications. Test the **Next.js 15 RC** today to explore its potential benefits!
+
+References: https://nextjs.org/blog/next-15-rc
+
+<Twemoji emoji="✨" />
+<SocialAccounts />

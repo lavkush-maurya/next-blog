@@ -3,7 +3,7 @@ export let BLUR_IMAGE_DATA_URL =
 
 export let LOGO_IMAGE_PATH = '/static/images/logo.jpg'
 export let HEADER_HEIGHT = '69px'
-export let FOOTER_HEIGHT = '188px'
+export let FOOTER_HEIGHT = '128px'
 export let MAIN_CONTENT_MIN_HEIGHT = `calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`
 
 export let SPOTIFY_TOKEN_API = `https://accounts.spotify.com/api/token`
