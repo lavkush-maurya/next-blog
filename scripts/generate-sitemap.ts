@@ -22,6 +22,12 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
 			<?xml version="1.0" encoding="UTF-8"?>
 			<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 				${pages
+          .filter((page) => {
+            // Exclude DRAFT.mdx in blog and SAMPLE.mdx in snippets
+            return (
+              !page.includes('data/blog/DRAFT.mdx') && !page.includes('data/snippets/SAMPLE.mdx')
+            )
+          })
           .map((page) => {
             let path = page
               .replace(/^pages\//, '/')
@@ -32,7 +38,7 @@ let SITE_URL = 'https://www.lavkushmaurya.me'
               .replace(/\.mdx?$/, '')
               .replace(/\/feed\.xml$/, '')
             let route = path === '/index' ? '' : path
-            if (page === `pages/404.ts` || page === `pages/blog/[...slug].ts`) {
+            if (page === `pages/404.tsx` || page === `pages/blog/[...slug].tsx`) {
               return
             }
             return `<url><loc>${SITE_URL}${route}</loc><lastmod>${currentDate}</lastmod></url>\n`
