@@ -307,7 +307,7 @@
 .twa-bar-chart {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f4ca.svg');
 }
-.twa {
+.wave.twa {
   display: inline-block;
   animation: wave-animation 2s infinite;
   transform-origin: 70% 70%;
