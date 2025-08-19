@@ -44,6 +44,18 @@ export interface UnsplashPhotoProps {
   author: string
 }
 
+export interface VideoInfoProps {
+  videoURL: string
+  author: string
+  title: string
+}
+
+export interface MusicInfoProps {
+  musicURL: string
+  artist: string
+  title: string
+}
+
 export interface ViewCounterProps {
   slug: string
   className?: string
