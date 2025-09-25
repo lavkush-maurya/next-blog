@@ -6,6 +6,7 @@ export async function getStaticProps() {
   let contactData = await getFileBySlug('pages', 'contact')
   return { props: { contactData } }
 }
+
 export default function Contact({ contactData }: { contactData: MdxFileData }) {
   let { mdxSource, frontMatter } = contactData
 
