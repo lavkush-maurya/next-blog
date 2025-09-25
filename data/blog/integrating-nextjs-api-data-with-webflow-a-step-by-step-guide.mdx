@@ -104,7 +104,7 @@ Here's the complete code:
 
     <script>
       // Fetch the main page content to get the buildId
-      let URL = 'https://lavkushmaurya.me'
+      let URL = 'https://lavkushmaurya.com'
       fetch(URL)
         .then((response) => response.text())
         .then((html) => {
@@ -123,7 +123,7 @@ Here's the complete code:
             }
           })
 
-          const dataUrl = `https://www.lavkushmaurya.me/_next/data/${buildId}/blog.json`
+          const dataUrl = `https://www.lavkushmaurya.com/_next/data/${buildId}/blog.json`
           return fetch(dataUrl)
         })
         .then((response) => response.json())
@@ -143,7 +143,7 @@ Here's the complete code:
             newCard.querySelector('[data-blog="date"]').textContent = post.date
             newCard.querySelector(
               '[data-blog="btn"]'
-            ).href = `https://www.lavkushmaurya.me/blog/${post.slug}`
+            ).href = `https://www.lavkushmaurya.com/blog/${post.slug}`
             blogContainer.appendChild(newCard)
           })
 

@@ -29,21 +29,21 @@ export function PageSeo({ title, description }: PageSeoProps) {
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": "Lavv Blog",
-            "description": "A blog showcasing various topics.",
-            "url": "https://www.lavkushmaurya.me/",
+            "description": "Sharing knowledge, stories, and insights that spark curiosity and inspire deeper conversations.",
+            "url": "https://www.lavkushmaurya.com/",
             "publisher": {
               "@type": "Individual",
               "name": "Lavkush Maurya",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.lavkushmaurya.me/logo.png",
+                "url": "https://www.lavkushmaurya.com/logo.png",
                 "width": 600,
                 "height": 60
               }
             },
             "image": {
               "@type": "ImageObject",
-              "url": "https://www.lavkushmaurya.me/cover-image.png",
+              "url": "https://www.lavkushmaurya.com/cover-image.png",
               "width": 1200,
               "height": 630
             }

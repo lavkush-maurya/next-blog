@@ -25,7 +25,7 @@ const Sitemap: NextPage<SitemapProps> = ({ links }) => {
 }
 
 export const getServerSideProps: GetServerSideProps<SitemapProps> = async () => {
-  const sitemapUrl = 'https://lavkushmaurya.me/sitemap.xml'
+  const sitemapUrl = 'https://lavkushmaurya.com/sitemap.xml'
 
   try {
     // Fetch XML data from the URL
